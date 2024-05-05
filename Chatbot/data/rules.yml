@@ -1,0 +1,858 @@
+version: "3.1"
+
+rules:
+- rule: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: FAQ-hold
+  steps:
+  - intent: hold
+  - action: utter_hold
+
+- rule: undergraduategpa
+  steps:
+  - intent: undergraduategpa
+  - action: utter_undergraduategpa
+
+- rule: transcriptHold
+  steps:
+  - intent: transcriptHold
+  - action: utter_transcriptHold
+
+- rule: withrawUTD
+  steps:
+  - intent: withrawUTD
+  - action: utter_withrawUTD
+
+- rule: gpa
+  steps:
+  - intent: gpa
+  - action: utter_gpa
+
+- rule: transcriptreq
+  steps:
+  - intent: transcriptreq
+  - action: utter_transcriptreq
+
+- rule: ask_academic_standing_GPA
+  steps:
+  - intent: ask_academic_standing_GPA
+  - action: utter_ask_academic_standing_GPA
+
+- rule: events
+  steps:
+  - intent: events
+  - action: utter_events
+
+- rule: temoc
+  steps:
+  - intent: temoc
+  - action: utter_temoc
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: graduategpa
+  steps:
+  - intent: graduategpa
+  - action: utter_graduategpa
+
+- rule: admission1
+  steps:
+  - intent: admission1
+  - action: utter_admission1
+ 
+- rule: admission2
+  steps:
+  - intent: admission2
+  - action: utter_admission2
+
+- rule: admission3
+  steps:
+  - intent: admission3
+  - action: utter_admission3
+
+- rule: admission4
+  steps:
+  - intent: admission4
+  - action: utter_admission4
+
+- rule: admission5
+  steps:
+  - intent: admission5
+  - action: utter_admission5
+
+- rule: admission6
+  steps:
+  - intent: admission6
+  - action: utter_admission6
+
+- rule: admission7
+  steps:
+  - intent: admission7
+  - action: utter_admission7
+
+- rule: admission8
+  steps:
+  - intent: admission8
+  - action: utter_admission8
+  
+- rule: admission9
+  steps:
+  - intent: admission9
+  - action: utter_admission9
+
+- rule: admission10
+  steps:
+  - intent: admission10
+  - action: utter_admission10
+  
+- rule: admission11
+  steps:
+  - intent: admission11
+  - action: utter_admission11
+
+- rule: admission12
+  steps:
+  - intent: admission12
+  - action: utter_admission12
+
+- rule: admission12
+  steps:
+  - intent: admission12
+  - action: utter_admission12
+
+- rule: admission13
+  steps:
+  - intent: admission13
+  - action: utter_admission13
+
+- rule: admission14
+  steps:
+  - intent: admission14
+  - action: utter_admission14
+
+- rule: admission15
+  steps:
+  - intent: admission15
+  - action: utter_admission15
+
+- rule: admission16
+  steps:
+  - intent: admission16
+  - action: utter_admission16
+
+- rule: admission17
+  steps:
+  - intent: admission17
+  - action: utter_admission17
+
+- rule: admission18
+  steps:
+  - intent: admission18
+  - action: utter_admission18
+
+- rule: admission19
+  steps:
+  - intent: admission19
+  - action: utter_admission19
+
+- rule: admission20
+  steps:
+  - intent: admission20
+  - action: utter_admission20
+
+- rule: admission23
+  steps:
+  - intent: admission23
+  - action: utter_admission23
+
+- rule: admission24
+  steps:
+  - intent: admission24
+  - action: utter_admission24
+
+
+
+- rule: enrollment_apt
+  steps:
+  - intent: enrollment_apt
+  - action: utter_enrollment_apt
+
+- rule: grad_commence
+  steps:
+  - intent: grad_commence
+  - action: utter_grad_commence
+
+- rule: commencement_duration
+  steps:
+  - intent: commencement_duration
+  - action: utter_commencement_duration
+
+- rule: housing_meal
+  steps:
+  - intent: housing_meal
+  - action: utter_housing_meal
+
+- rule: take_future_class
+  steps:
+  - intent: take_future_class
+  - action: utter_take_future_class
+
+- rule: richardbenson
+  steps:
+  - intent: richardbenson
+  - action: utter_richardbenson
+
+- rule: deanofstudents
+  steps:
+  - intent: deanofstudents
+  - action: utter_deanofstudents
+
+- rule: studentsuccesscenter
+  steps:
+  - intent: studentsuccesscenter
+  - action: utter_studentsuccesscenter
+
+- rule: utdlibrary
+  steps:
+  - intent: utdlibrary
+  - action: utter_utdlibrary
+
+- rule: elearning
+  steps:
+  - intent: elearning
+  - action: utter_elearning
+
+- rule: emergency
+  steps:
+  - intent: emergency
+  - action: utter_emergency
+
+- rule: parking
+  steps:
+  - intent: parking
+  - action: utter_parking
+
+- rule: degrees
+  steps:
+  - intent: degrees
+  - action: utter_degrees 
+
+- rule: certifications
+  steps:
+  - intent: certifications
+  - action: utter_certifications
+
+- rule: schools
+  steps:
+  - intent: schools
+  - action: utter_schools
+
+- rule: honors
+  steps:
+  - intent: honors
+  - action: utter_honors
+
+- rule: education_abroad
+  steps:
+  - intent: education_abroad
+  - action: utter_education_abroad
+
+- rule: athletics
+  steps:
+  - intent: athletics
+  - action: utter_athletics
+  
+- rule: esports
+  steps:
+  - intent: esports
+  - action: utter_esports
+
+- rule: recreation
+  steps:
+  - intent: recreation
+  - action: utter_recreation
+
+- rule: paytuition
+  steps:
+  - intent: paytuition
+  - action: utter_paytuition
+
+- rule: classes
+  steps:
+  - intent: classes
+  - action: utter_classes
+
+- rule: classes_offcampus
+  steps:
+  - intent: classes_offcampus
+  - action: utter_classes_offcampus
+
+- rule: major_change
+  steps:
+  - intent: major_change
+  - action: utter_major_change
+
+- rule: minor
+  steps:
+  - intent: minor
+  - action: utter_minor
+
+- rule: core
+  steps:
+  - intent: core
+  - action: utter_core
+
+- rule: limithours
+  steps:
+  - intent: limithours
+  - action: utter_limithours
+
+- rule: cometcard
+  steps:
+  - intent: cometcard
+  - action: utter_cometcard
+
+- rule: cometcard2
+  steps:
+  - intent: cometcard2
+  - action: utter_cometcard2
+
+- rule: cometcard3
+  steps:
+  - intent: cometcard3
+  - action: utter_cometcard3
+
+- rule: cometcard4
+  steps:
+  - intent: cometcard4
+  - action: utter_cometcard4
+
+- rule: cometcard5
+  steps:
+  - intent: cometcard5
+  - action: utter_cometcard5
+
+- rule: cometcard6
+  steps:
+  - intent: cometcard6
+  - action: utter_cometcard6
+
+- rule: cometcard7
+  steps:
+  - intent: cometcard7
+  - action: utter_cometcard7
+
+- rule: cometcard8
+  steps:
+  - intent: cometcard8
+  - action: utter_cometcard8
+
+- rule: cometcard9
+  steps:
+  - intent: cometcard9
+  - action: utter_cometcard9
+
+- rule: headcovering
+  steps:
+  - intent: headcovering
+  - action: utter_headcovering
+
+- rule: galaxy1
+  steps:
+  - intent: galaxy1
+  - action: utter_galaxy1
+
+- rule: galaxy2
+  steps:
+  - intent: galaxy2
+  - action: utter_galaxy2
+
+- rule: galaxy3
+  steps:
+  - intent: galaxy3
+  - action: utter_galaxy3
+
+- rule: galaxy4
+  steps:
+  - intent: galaxy4
+  - action: utter_galaxy4
+
+- rule: duo
+  steps:
+  - intent: duo
+  - action: utter_duo
+
+
+
+- rule: y_courseinfo
+  steps: 
+  - intent: y_courseinfo
+  - action: utter_y_courseinfo
+  
+- rule: y_degreeinfo
+  steps:
+  - intent: y_degreeinfo
+  - action: utter_y_degreeinfo
+
+- rule: y_orientation
+  steps:
+  - intent: y_orientation
+  - action: utter_y_orientation
+
+- rule: y_careerhelp
+  steps: 
+  - intent: y_careerhelp
+  - action: utter_y_careerhelp
+
+- rule: y_healthandwellness
+  steps:
+  - intent: y_healthandwellness
+  - action: utter_y_healthandwellness
+
+- rule: y_sociallife
+  steps:
+  - intent: y_sociallife
+  - action: utter_y_sociallife
+
+- rule: y_campusnavigation
+  steps:
+  - intent: y_campusnavigation
+  - action: utter_y_campusnavigation
+
+- rule: y_campusresources
+  steps:
+  - intent: y_campusresources
+  - action: utter_y_campusresources
+  
+- rule: y_csmentoringcenter
+  steps:
+  - intent: y_csmentoringcenter
+  - action: utter_y_csmentoringcenter
+
+- rule: y_hackathonguidance
+  steps:
+  - intent: y_hackathonguidance
+  - action: utter_y_hackathonguidance
+
+- rule: y_gradrequirements
+  steps:
+  - intent: y_gradrequirements
+  - action: utter_y_gradrequirements
+
+- rule: y_academicadvising
+  steps:
+  - intent: y_academicadvising
+  - action: utter_y_academicadvising
+
+- rule: y_scholarship
+  steps:
+  - intent: y_scholarship
+  - action: utter_y_scholarship
+
+- rule: y_housing
+  steps:
+  - intent: y_housing
+  - action: utter_y_housing
+
+- rule: y_accessibility
+  steps: 
+  - intent: y_accessibility
+  - action: utter_y_accessibility
+
+- rule: y_timemanagement
+  steps:
+  - intent: y_timemanagement
+  - action: utter_y_timemanagement
+
+- rule: y_dininginfo
+  steps: 
+  - intent: y_dininginfo
+  - action: utter_y_dininginfo
+
+- rule: y_gym
+  steps:
+  - intent: y_gym
+  - action: utter_y_gym
+
+- rule: y_athletics
+  steps:
+  - intent: y_athletics
+  - action: utter_y_athletics
+
+- rule: y_bookstore
+  steps:
+  - intent: y_bookstore
+  - action: utter_y_bookstore
+
+- rule: whoosh
+  steps:
+  - intent: whoosh
+  - action: utter_whoosh
+
+- rule: address
+  steps:
+  - intent: address
+  - action: utter_address
+
+- rule: aboututd
+  steps:
+  - intent: aboututd
+  - action: utter_aboututd
+
+- rule: alumni
+  steps:
+  - intent: alumni
+  - action: utter_alumni
+
+- rule: counseling
+  steps:
+  - intent: counseling
+  - action: utter_counseling
+
+- rule: genai
+  steps:
+  - intent: genai
+  - action: utter_genai
+
+- rule: netid
+  steps:
+  - intent: netid
+  - action: utter_netid
+
+- rule: mobileapp
+  steps:
+  - intent: mobileapp
+  - action: utter_mobileapp
+
+
+- rule: y_ecsadvising
+  steps:
+  - intent: y_ecsadvising
+  - action: utter_y_ecsadvising
+
+- rule: y_ifriendprogram
+  steps: 
+  - intent: y_ifriendprogram
+  - action: utter_y_ifriendprogram
+  
+- rule: y_internationalweek
+  steps:
+  - intent: y_internationalweek
+  - action: utter_y_internationalweek
+  
+- rule: y_internationalstudentorientation
+  steps:
+  - intent: y_internationalstudentorientation
+  - action: utter_y_internationalstudentorientation
+
+- rule: y_internationaladmissions
+  steps:
+  - intent: y_internationaladmissions
+  - action: utter_y_internationaladmissions
+
+- rule: y_utddirectory
+  steps:
+  - intent: y_utddirectory
+  - action: utter_y_utddirectory
+
+- rule: y_utdhumanresources
+  steps:
+  - intent: y_utdhumanresources
+  - action: utter_y_utdhumanresources
+
+- rule: y_oitservicedesk
+  steps:
+  - intent: y_oitservicedesk
+  - action: utter_y_oitservicedesk
+  
+- rule: y_techknowledgybar
+  steps:
+  - intent: y_techknowledgybar
+  - action: utter_y_techknowledgybar
+
+- rule: y_campuslife
+  steps: 
+  - intent: y_campuslife
+  - action: utter_y_campuslife
+
+- rule: y_greeklife
+  steps:
+  - intent: y_greeklife
+  - action: utter_y_greeklife
+
+- rule: y_studentspaces
+  steps:
+  - intent: y_studentspaces
+  - action: utter_y_studentspaces
+
+- rule: y_studentunion
+  steps:
+  - intent: y_studentunion
+  - action: utter_y_studentunion
+
+- rule: y_workatutdallas
+  steps:
+  - intent: y_workatutdallas
+  - action: utter_y_workatutdallas
+
+- rule: y_studentmedia
+  steps:
+  - intent: y_studentmedia
+  - action: utter_y_studentmedia
+
+- rule: y_studentachievements
+  steps:
+  - intent: y_studentachievements
+  - action: utter_y_studentachievements
+  
+- rule: y_utdtalk
+  steps:
+  - intent: y_utdtalk
+  - action: utter_y_utdtalk
+
+- rule: y_studentcounselingcenter
+  steps:
+  - intent: y_studentcounselingcenter
+  - action: utter_y_studentcounselingcenter
+    
+- rule: y_busservice
+  steps:
+  - intent: y_busservice
+  - action: utter_y_busservice
+
+- rule: y_campushealthpromotion
+  steps:
+  - intent: y_campushealthpromotion
+  - action: utter_y_campushealthpromotion
+    
+- rule: y_newdimensionsutd
+  steps:
+  - intent: y_newdimensionsutd
+  - action: utter_y_newdimensionsutd
+
+- rule: y_utdoit
+  steps:
+  - intent: y_utdoit
+  - action: utter_y_utdoit
+
+- rule: y_openaccesslabs
+  steps:
+  - intent: y_openaccesslabs
+  - action: utter_y_openaccesslabs
+
+- rule: y_utdesign
+  steps:
+  - intent: y_utdesign
+  - action: utter_y_utdesign
+
+- rule: y_utdbighowdy
+  steps:
+  - intent: y_utdbighowdy
+  - action: utter_y_utdbighowdy
+
+- rule: y_utdimmigrationadvising
+  steps:
+  - intent: y_utdimmigrationadvising
+  - action: utter_y_utdimmigrationadvising
+
+- rule: y_utdtoday
+  steps:
+  - intent: y_utdtoday
+  - action: utter_y_utdtoday
+
+- rule: y_youarewelcomehere
+  steps:
+  - intent: y_youarewelcomehere
+  - action: utter_y_youarewelcomehere
+
+- rule: y_myutd
+  steps:
+  - intent: y_myutd
+  - action: utter_y_myutd
+
+- rule: y_academicresources
+  steps:
+  - intent: y_academicresources
+  - action: utter_y_academicresources
+
+- rule: y_testingcenter
+  steps:
+  - intent: y_testingcenter
+  - action: utter_y_testingcenter
+
+- rule: y_teachingresources
+  steps:
+  - intent: y_teachingresources
+  - action: utter_y_teachingresources
+
+- rule: y_utdgrades
+  steps:
+  - intent: y_utdgrades
+  - action: utter_y_utdgrades
+
+- rule: y_cometgivingdays
+  steps:
+  - intent: y_cometgivingdays
+  - action: utter_y_cometgivingdays
+
+- rule: name
+  steps:
+  - intent: name
+  - action: utter_name
+
+- rule: howareyou
+  steps:
+  - intent: howareyou
+  - action: utter_howareyou
+  
+- rule: standfor
+  steps:
+  - intent: standfor
+  - action: utter_standfor
+
+- rule: joke
+  steps:
+  - intent: joke
+  - action: utter_joke
+
+- rule: sing
+  steps:
+  - intent: sing
+  - action: utter_sing
+
+- rule: oldest
+  steps:
+  - intent: oldest
+  - action: utter_oldest
+
+- rule: youngest
+  steps:
+  - intent: youngest
+  - action: utter_youngest
+
+- rule: socialmedia
+  steps:
+  - intent: socialmedia
+  - action: utter_socialmedia
+
+- rule: utdcost
+  steps:
+  - intent: utdcost
+  - action: utter_utdcost
+
+- rule: affirm
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- rule: deny
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+- rule: mood_great
+  steps:
+  - intent: mood_great
+  - action: utter_mood_great
+
+- rule: mood_unhappy
+  steps:
+  - intent: mood_unhappy
+  - action: utter_mood_unhappy
+
+- rule: bot_challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_bot_challenge
+
+- rule: fail
+  steps:
+  - intent: fail
+  - action: utter_fail
+
+- rule: dgrade
+  steps:
+  - intent: dgrade
+  - action: utter_dgrade
+
+- rule: fasttrack
+  steps:
+  - intent: fasttrack
+  - action: utter_fasttrack
+
+- rule: parkingcitation
+  steps:
+  - intent: parkingcitation
+  - action: utter_parkingcitation
+
+- rule: dance
+  steps:
+  - intent: dance
+  - action: utter_dance
+
+- rule: employeebenefits
+  steps:
+  - intent: employeebenefits
+  - action: utter_employeebenefits
+
+- rule: employeedev
+  steps:
+  - intent: employeedev
+  - action: utter_employeedev
+
+- rule: erikjonsson
+  steps:
+  - intent: erikjonsson
+  - action: utter_erikjonsson
+
+- rule: finalexam
+  steps:
+  - intent: finalexam
+  - action: utter_finalexam
+
+- rule: immunizations
+  steps:
+  - intent: immunizations
+  - action: utter_immunizations
+
+- rule: helpdesk
+  steps:
+  - intent: helpdesk
+  - action: utter_helpdesk
+
+- rule: askbot
+  steps:
+  - intent: askbot
+  - action: utter_askbot
+
+- rule: generaladmission
+  steps:
+  - intent: generaladmission
+  - action: utter_generaladmission
+
+- rule: academic_dishonesty
+  steps:
+  - intent: academic_dishonesty
+  - action: utter_academic_dishonesty
+
+- rule: newsletter
+  steps:
+  - intent: newsletter
+  - action: utter_newsletter
+
+- rule: ezpay
+  steps:
+  - intent: ezpay
+  - action: utter_ezpay
+
+- rule: error
+  steps:
+  - intent: error
+  - action: utter_error
+  

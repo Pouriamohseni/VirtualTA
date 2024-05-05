@@ -1,0 +1,8 @@
+flask
+requests
+rasa
+pyyaml
+flask_jwt_extended
+requests
+flask_sqlalchemy
+pyotp

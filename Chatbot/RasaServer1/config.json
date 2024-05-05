@@ -1,0 +1,27 @@
+{
+    "logs_alert_on_criticality": {
+        "DEBUG": false,
+        "INFO": false,
+        "WARNING": false,
+        "ERROR": false,
+        "CRITICAL": true
+    },
+    "chat_rate_limit": false,
+    "chat_rate_limit_seconds": 5,
+    "chat_banned_uuids": [
+        "12345678-1234-5678-1234-567812345678",
+        "87654321-4321-8765-4321-876543218765"
+    ],
+    "admin_uuids": [
+        "admin"
+    ],
+    "chat_banned_thread_ids": [],
+    "chat_banned_user_ids": [],
+    "startup_check_python_version": false,
+    "startup_check_rasa_installed": false,
+    "startup_check_rasa_running": false,
+    "startup_start_rasa_if_not_running_post_check": false,
+    "ai_helper_enabled": true,
+    "rasa_url": "http://127.0.0.1:5005",
+    "debug_mode": false
+}

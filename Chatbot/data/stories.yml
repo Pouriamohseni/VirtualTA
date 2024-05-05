@@ -1,0 +1,737 @@
+version: "3.1"
+
+stories:
+- story: undergraduate gpa
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: gpa
+  - action: utter_gpa
+  - intent: undergraduategpa
+  - action: utter_undergraduategpa
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: graduate gpa
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: gpa
+  - action: utter_gpa
+  - intent: graduategpa
+  - action: utter_graduategpa
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment appointment
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: enrollment_apt
+  - action: utter_enrollment_apt
+
+- story: commencement/graduation
+  steps: 
+  - intent: greet
+  - action: utter_greet
+  - intent: grad_commence
+  - action: utter_grad_commence
+  - intent: commencement_duration
+  - action: utter_commencement_duration
+
+- story: what can you help with
+  steps:
+  - intent: usecase
+  - action: utter_usecase
+
+- story: FAQ-hold
+  steps:
+  - intent: hold
+  - action: utter_hold
+
+- story: FAQ
+  steps:
+  - intent: transcriptHold
+  - action: utter_transcriptHold
+  - intent: withrawUTD
+  - action: utter_withrawUTD
+  - intent: admission1
+  - action: utter_admission1
+
+
+- story: interactive_story_1
+  steps:
+  - intent: testing
+  - action: utter_testing
+
+- story: interactive_story_2
+  steps:
+  - intent: transcriptreq
+  - action: utter_transcriptreq
+  - intent: ask_academic_standing_GPA
+  - action: utter_ask_academic_standing_GPA
+
+- story: interactive_story_3
+  steps:
+  - intent: events
+  - action: utter_events
+  - intent: temoc
+  - action: utter_temoc
+
+- story: pay housing/meals
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: housing_meal
+  - action: utter_housing_meal
+
+- story: future classes
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: take_future_class
+  - action: utter_take_future_class
+
+- story: richardbenson
+  steps:
+  - intent: richardbenson
+  - action: utter_richardbenson
+
+- story: deanofstudents
+  steps:
+  - intent: deanofstudents
+  - action: utter_deanofstudents
+
+- story: studentsuccesscenter
+  steps: 
+  - intent: studentsuccesscenter
+  - action: utter_studentsuccesscenter
+
+- story: utdlibrary
+  steps:
+  - intent: utdlibrary
+  - action: utter_utdlibrary
+
+- story: elearning
+  steps:
+  - intent: elearning
+  - action: utter_elearning
+
+- story: emergency 
+  steps:
+  - intent: emergency
+  - action: utter_emergency
+
+- story: parking
+  steps:
+  - intent: parking
+  - action: utter_parking
+
+- story: degrees
+  steps:
+  - intent: degrees
+  - action: utter_degrees 
+
+- story: certifications
+  steps:
+  - intent: certifications
+  - action: utter_certifications
+
+- story: schools
+  steps:
+  - intent: schools
+  - action: utter_schools
+
+- story: honors
+  steps:
+  - intent: honors
+  - action: utter_honors
+
+- story: education_abroad
+  steps:
+  - intent: education_abroad
+  - action: utter_education_abroad
+
+- story: athletics
+  steps:
+  - intent: athletics
+  - action: utter_athletics
+
+- story: esports
+  steps:
+  - intent: esports
+  - action: utter_esports
+
+- story: recreation
+  steps:
+  - intent: recreation
+  - action: utter_recreation
+
+- story: paytuition
+  steps:
+  - intent: paytuition
+  - action: utter_paytuition
+
+- story: classes
+  steps:
+  - intent: classes
+  - action: utter_classes
+
+- story: classes_offcampus
+  steps:
+  - intent: classes_offcampus
+  - action: utter_classes_offcampus
+
+- story: major_change
+  steps:
+  - intent: major_change
+  - action: utter_major_change
+
+- story: minor
+  steps:
+  - intent: minor
+  - action: utter_minor
+
+- story: core
+  steps:
+  - intent: core
+  - action: utter_core
+
+- story: limithours
+  steps:
+  - intent: limithours
+  - action: utter_limithours
+
+- story: cometcard
+  steps:
+  - intent: cometcard
+  - action: utter_cometcard
+
+- story: cometcard2
+  steps:
+  - intent: cometcard2
+  - action: utter_cometcard2
+
+- story: cometcard3
+  steps:
+  - intent: cometcard3
+  - action: utter_cometcard3
+
+- story: cometcard4
+  steps:
+  - intent: cometcard4
+  - action: utter_cometcard4
+
+- story: cometcard5
+  steps:
+  - intent: cometcard5
+  - action: utter_cometcard5
+
+- story: cometcard6
+  steps:
+  - intent: cometcard6
+  - action: utter_cometcard6
+
+- story: cometcard7
+  steps:
+  - intent: cometcard7
+  - action: utter_cometcard7
+
+- story: cometcard8
+  steps:
+  - intent: cometcard8
+  - action: utter_cometcard8
+
+- story: cometcard9
+  steps:
+  - intent: cometcard9
+  - action: utter_cometcard9
+
+- story: headcovering
+  steps:
+  - intent: headcovering
+  - action: utter_headcovering
+
+- story: galaxy1
+  steps:
+  - intent: galaxy1
+  - action: utter_galaxy1
+
+- story: galaxy2
+  steps:
+  - intent: galaxy2
+  - action: utter_galaxy2
+
+- story: galaxy3
+  steps:
+  - intent: galaxy3
+  - action: utter_galaxy3
+
+- story: galaxy4
+  steps:
+  - intent: galaxy4
+  - action: utter_galaxy4
+
+- story: duo
+  steps:
+  - intent: duo
+  - action: utter_duo
+
+
+
+- story: y_courseinfo
+  steps:
+  - intent: y_courseinfo
+  - action: utter_y_courseinfo
+  
+- story: y_degreeinfo
+  steps: 
+  - intent: y_degreeinfo
+  - action: utter_y_degreeinfo
+
+- story: y_orientation
+  steps:
+  - intent: y_orientation
+  - action: utter_y_orientation
+
+- story: y_careerhelp
+  steps: 
+  - intent: y_careerhelp
+  - action: utter_y_careerhelp
+
+- story: y_healthandwellness
+  steps:
+  - intent: y_healthandwellness
+  - action: utter_y_healthandwellness
+
+- story: y_sociallife
+  steps:
+  - intent: y_sociallife
+  - action: utter_y_sociallife
+
+- story: y_campusnavigation
+  steps:
+  - intent: y_campusnavigation
+  - action: utter_y_campusnavigation
+
+- story: y_campusresources
+  steps:
+  - intent: y_campusresources
+  - action: utter_y_campusresources
+
+- story: y_csmentoringcenter
+  steps:
+  - intent: y_csmentoringcenter
+  - action: utter_y_csmentoringcenter
+
+- story: y_hackathonguidance
+  steps:
+  - intent: y_hackathonguidance
+  - action: utter_y_hackathonguidance
+
+- story: y_gradrequirements
+  steps:
+  - intent: y_gradrequirements
+  - action: utter_y_gradrequirements
+
+- story: y_academicadvising
+  steps:
+  - intent: y_academicadvising
+  - action: utter_y_academicadvising
+
+- story: y_scholarship
+  steps:
+  - intent: y_scholarship
+  - action: utter_y_scholarship
+
+- story: y_housing
+  steps:
+  - intent: y_housing
+  - action: utter_y_housing
+
+- story: y_accessibility
+  steps:
+  - intent: y_accessibility
+  - action: utter_y_accessibility
+
+- story: y_timemanagement
+  steps:
+  - intent: y_timemanagement
+  - action: utter_y_timemanagement
+
+- story: y_dininginfo
+  steps:
+  - intent: y_dininginfo
+  - action: utter_y_dininginfo
+
+- story: y_gym
+  steps:
+  - intent: y_gym
+  - action: utter_y_gym
+
+- story: y_athletics
+  steps:
+  - intent: y_athletics
+  - action: utter_y_athletics
+
+- story: y_bookstore
+  steps:
+  - intent: y_bookstore
+  - action: utter_y_bookstore
+
+- story: whoosh
+  steps:
+  - intent: whoosh
+  - action: utter_whoosh
+
+- story: address
+  steps:
+  - intent: address
+  - action: utter_address
+
+- story: aboututd
+  steps:
+  - intent: aboututd
+  - action: utter_aboututd
+
+- story: alumni
+  steps:
+  - intent: alumni
+  - action: utter_alumni
+
+- story: counseling
+  steps:
+  - intent: counseling
+  - action: utter_counseling
+
+- story: genai
+  steps:
+  - intent: genai
+  - action: utter_genai
+
+- story: netid
+  steps:
+  - intent: netid
+  - action: utter_netid
+
+- story: mobileapp
+  steps:
+  - intent: mobileapp
+  - action: utter_mobileapp
+
+
+- story: y_ecsadvising
+  steps:
+  - intent: y_ecsadvising
+  - action: utter_y_ecsadvising
+
+- story: y_ifriendprogram
+  steps: 
+  - intent: y_ifriendprogram
+  - action: utter_y_ifriendprogram
+  
+- story: y_internationalweek
+  steps:
+  - intent: y_internationalweek
+  - action: utter_y_internationalweek
+  
+- story: y_internationalstudentorientation
+  steps:
+  - intent: y_internationalstudentorientation
+  - action: utter_y_internationalstudentorientation
+
+- story: y_internationaladmissions
+  steps:
+  - intent: y_internationaladmissions
+  - action: utter_y_internationaladmissions
+
+- story: y_utddirectory
+  steps:
+  - intent: y_utddirectory
+  - action: utter_y_utddirectory
+
+- story: y_utdhumanresources
+  steps:
+  - intent: y_utdhumanresources
+  - action: utter_y_utdhumanresources
+
+- story: y_oitservicedesk
+  steps:
+  - intent: y_oitservicedesk
+  - action: utter_y_oitservicedesk
+  
+- story: y_techknowledgybar
+  steps:
+  - intent: y_techknowledgybar
+  - action: utter_y_techknowledgybar
+
+- story: y_campuslife
+  steps: 
+  - intent: y_campuslife
+  - action: utter_y_campuslife
+
+- story: y_greeklife
+  steps:
+  - intent: y_greeklife
+  - action: utter_y_greeklife
+
+- story: y_studentspaces
+  steps:
+  - intent: y_studentspaces
+  - action: utter_y_studentspaces
+
+- story: y_studentunion
+  steps:
+  - intent: y_studentunion
+  - action: utter_y_studentunion
+
+- story: y_workatutdallas
+  steps:
+  - intent: y_workatutdallas
+  - action: utter_y_workatutdallas
+
+- story: y_studentmedia
+  steps:
+  - intent: y_studentmedia
+  - action: utter_y_studentmedia
+
+- story: y_studentachievements
+  steps:
+  - intent: y_studentachievements
+  - action: utter_y_studentachievements
+  
+- story: y_utdtalk
+  steps:
+  - intent: y_utdtalk
+  - action: utter_y_utdtalk
+
+- story: y_studentcounselingcenter
+  steps:
+  - intent: y_studentcounselingcenter
+  - action: utter_y_studentcounselingcenter
+    
+- story: y_busservice
+  steps:
+  - intent: y_busservice
+  - action: utter_y_busservice
+
+- story: y_campushealthpromotion
+  steps:
+  - intent: y_campushealthpromotion
+  - action: utter_y_campushealthpromotion
+    
+- story: y_newdimensionsutd
+  steps:
+  - intent: y_newdimensionsutd
+  - action: utter_y_newdimensionsutd
+
+- story: y_utdoit
+  steps:
+  - intent: y_utdoit
+  - action: utter_y_utdoit
+
+- story: y_openaccesslabs
+  steps:
+  - intent: y_openaccesslabs
+  - action: utter_y_openaccesslabs
+
+- story: y_utdesign
+  steps:
+  - intent: y_utdesign
+  - action: utter_y_utdesign
+
+- story: y_utdbighowdy
+  steps:
+  - intent: y_utdbighowdy
+  - action: utter_y_utdbighowdy
+
+- story: y_utdimmigrationadvising
+  steps:
+  - intent: y_utdimmigrationadvising
+  - action: utter_y_utdimmigrationadvising
+
+- story: y_utdtoday
+  steps:
+  - intent: y_utdtoday
+  - action: utter_y_utdtoday
+
+- story: y_youarewelcomehere
+  steps:
+  - intent: y_youarewelcomehere
+  - action: utter_y_youarewelcomehere
+
+- story: y_myutd
+  steps:
+  - intent: y_myutd
+  - action: utter_y_myutd
+
+- story: y_academicresources
+  steps:
+  - intent: y_academicresources
+  - action: utter_y_academicresources
+
+- story: y_testingcenter
+  steps:
+  - intent: y_testingcenter
+  - action: utter_y_testingcenter
+
+- story: y_teachingresources
+  steps:
+  - intent: y_teachingresources
+  - action: utter_y_teachingresources
+
+- story: y_utdgrades
+  steps:
+  - intent: y_utdgrades
+  - action: utter_y_utdgrades
+
+- story: y_cometgivingdays
+  steps:
+  - intent: y_cometgivingdays
+  - action: utter_y_cometgivingdays
+
+- story: name
+  steps:
+  - intent: name
+  - action: utter_name
+
+- story: howareyou
+  steps:
+  - intent: howareyou
+  - action: utter_howareyou
+
+- story: standfor
+  steps:
+  - intent: standfor
+  - action: utter_standfor
+
+- story: joke
+  steps:
+  - intent: joke
+  - action: utter_joke
+
+- story: sing
+  steps:
+  - intent: sing
+  - action: utter_sing
+
+- story: oldest
+  steps:
+  - intent: oldest
+  - action: utter_oldest
+
+- story: youngest
+  steps:
+  - intent: youngest
+  - action: utter_youngest
+
+- story: socialmedia
+  steps:
+  - intent: socialmedia
+  - action: utter_socialmedia
+
+- story: utdcost
+  steps:
+  - intent: utdcost
+  - action: utter_utdcost
+
+- story: affirm
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- story: deny
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+- story: mood_great
+  steps:
+  - intent: mood_great
+  - action: utter_mood_great
+
+- story: mood_unhappy
+  steps:
+  - intent: mood_unhappy
+  - action: utter_mood_unhappy
+
+- story: bot_challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_bot_challenge
+
+- story: fail
+  steps:
+  - intent: fail
+  - action: utter_fail
+
+- story: dgrade
+  steps:
+  - intent: dgrade
+  - action: utter_dgrade
+
+- story: fasttrack
+  steps:
+  - intent: fasttrack
+  - action: utter_fasttrack
+
+- story: parkingcitation
+  steps:
+  - intent: parkingcitation
+  - action: utter_parkingcitation
+
+- story: dance
+  steps:
+  - intent: dance
+  - action: utter_dance
+
+- story: employeebenefits
+  steps:
+  - intent: employeebenefits
+  - action: utter_employeebenefits
+
+- story: employeedev
+  steps:
+  - intent: employeedev
+  - action: utter_employeedev
+
+- story: erikjonsson
+  steps:
+  - intent: erikjonsson
+  - action: utter_erikjonsson
+
+- story: finalexam
+  steps:
+  - intent: finalexam
+  - action: utter_finalexam
+
+- story: immunizations
+  steps:
+  - intent: immunizations
+  - action: utter_immunizations
+
+- story: helpdesk
+  steps:
+  - intent: helpdesk
+  - action: utter_helpdesk
+
+- story: askbot
+  steps:
+  - intent: askbot
+  - action: utter_askbot
+
+- story: generaladmission
+  steps:
+  - intent: generaladmission
+  - action: utter_generaladmission
+
+- story: academic_dishonesty
+  steps:
+  - intent: academic_dishonesty
+  - action: utter_academic_dishonesty
+
+- story: newsletter
+  steps:
+  - intent: newsletter
+  - action: utter_newsletter
+  

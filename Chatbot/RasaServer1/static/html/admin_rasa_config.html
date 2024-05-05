@@ -1,0 +1,474 @@
+<head>
+    <link rel="stylesheet" href="/styles">
+</head>
+<h3>Menu</h3>
+<a href="/static/html/admin_rasa_config.html">Rasa Config</a><br>
+<a href="/static/html/admin_rasa_chat_logs.html">Rasa Chat Logs</a><br>
+<a href="/static/html/admin_rasa_event_logs.html">Rasa Event Logs</a><br>
+<a href="/static/html/admin_rasa_chat_testing.html">Rasa Chat Testing</a><br>
+<a href="/static/html/admin_rasa_session_management.html">Rasa Session Management</a><br>
+
+<h3>Rasa Server Status</h3>
+<table id="rasaServerStatus">
+    <tr>
+        <th>Server</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>RasaServer1 (Flask Backend)</td>
+        <td id="rasaServer1Status">N/A</td>
+    </tr>
+    <tr>
+        <td>Rasa (Core)</td>
+        <td id="rasaCoreStatus">N/A</td>
+    </tr>
+</table>
+<br><br><br>
+<h3>Rasa Actions</h3>
+<button onclick="RegenerateRasaConfig()">Regenerate Rasa Config</button><br><br>
+<button onclick="KillRasaCore()">Kill Rasa (Core)</button><br><br>
+<button onclick="RestartRasaCore()">Restart Rasa (Core)</button><br><br>
+<button onclick="TrainRasaCore()">Train Rasa (Core)</button><br><br>
+
+<h3>Rasa Backend Config</h3>
+<h4>Create Value</h4>
+<input type="text" id="newKey" placeholder="Key">
+<input type="text" id="newValue" placeholder="Value">
+<button onclick="SetConfigValue(document.getElementById('newKey').value, document.getElementById('newValue').value)">Create</button>
+<br><br>
+<h4>Existing Configs</h4>
+<button onclick="GetRasaConfig()">Refresh</button>
+<table id="configTable">
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+        <th>Options</th>
+    </tr>
+</table>
+
+<br><br>
+<h3>Rasa Training Data</h3>
+<br><br>
+
+<h4>Domain</h4>
+<h3>Add Domain Data</h3>
+<form id="addDomainForm">
+    <label for="intents">Intents:</label>
+    <textarea id="intents" name="intents" placeholder="greet\nbye\naffirm"></textarea><br><br>
+    
+    <label for="entities">Entities:</label>
+    <textarea id="entities" name="entities" placeholder="location\ntime"></textarea><br><br>
+    
+    <label for="slots">Slots:</label>
+    <textarea id="slots" name="slots" placeholder="location: type: text\nend_time: type: time"></textarea><br><br>
+    
+    <label for="responses">Responses:</label>
+    <textarea id="responses" name="responses" placeholder="utter_greet: - text: 'Hello! How can I help?'\nutter_bye: - text: 'Goodbye!'"></textarea><br><br>
+    
+    <input type="submit" value="Submit">
+</form>
+<br><br>
+<div id="domainData"></div>
+
+<h4>NLU</h4>
+<p>Note for Entities: "Entities are annotated in training examples with the entity's name. In addition to the entity name, you can annotate an entity with synonyms, roles, or groups."</p>
+nlu: <br>
+- intent: check_balance <br>
+  examples: | <br>
+    - how much do I have on my [savings](account) account <br>
+    - how much money is in my [checking]{"entity": "account"} account <br>
+    - What's the balance on my [credit card account]{"entity":"account","value":"credit"} <br>
+
+<h3>Add NLU Data</h3>
+<form id="addNLUForm">
+    <label for="intent">Intent:</label>
+    <input type="text" id="intent" name="intent"><br><br>
+    
+    <label for="examples">Examples:</label>
+    <textarea id="examples" name="examples" placeholder="- Hi\n- Hello"></textarea><br><br>
+    
+    <input type="submit" value="Submit">
+</form>
+<br><br>
+<div id="nluData"></div>
+
+<h4>Stories</h4>
+<h3>Add Story Data</h3>
+<form id="addStoryForm">
+    <label for="story_name">Story Name:</label>
+    <input type="text" id="story_name" name="story_name"><br><br>
+    
+    <label for="steps">Steps:</label>
+    <textarea id="steps" name="steps" placeholder="- intent: greet\n- action: utter_greet"></textarea><br><br>
+    
+    <input type="submit" value="Submit">
+</form>
+<br><br>
+<div id="storiesData"></div>
+
+<h4>Rules</h4>
+<h3>Add Rule Data</h3>
+<form id="addRuleForm">
+    <label for="rule_name">Rule Name:</label>
+    <input type="text" id="rule_name" name="rule_name"><br><br>
+    
+    <label for="conditions">Conditions (Optional):</label>
+    <textarea id="conditions" name="conditions" placeholder="- slot_was_set:\n    - requested_slot: location"></textarea><br><br>
+    
+    <label for="steps">Steps:</label>
+    <textarea id="steps" name="steps" placeholder="- intent: inform\n- action: utter_ask_location"></textarea><br><br>
+    
+    <input type="submit" value="Submit">
+</form>
+<br><br>
+<div id="rulesData"></div>
+
+<h4>Actions</h4>
+<div id="actionsData"></div>
+
+<h4>Config</h4>
+<div id="configData"></div>
+
+<h4>Credentials</h4>
+<div id="credentialsData"></div>
+
+<h4>Endpoints</h4>
+<div id="endpointsData"></div>
+
+<br><br>
+<script>
+    config = {};
+    window.onload = async function() {
+        await GetRasaConfig();
+    }
+
+    async function GetRasaConfig() {
+        try {
+            const response = await fetch('/admin/rasaserver1/admin/get_config');
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            config = data;
+            populateTable(config);
+        } catch (error) {
+            console.error('Error fetching config:', error);
+        }
+    }
+
+    async function SetConfigValue(key, value) {
+        if(typeof value === 'string') value = value.trim();
+        else if(Array.isArray(value)) value = value.map(v => v.trim());
+        else if(typeof value === 'number') {
+            if(isNaN(value)) {
+                alert('Invalid number');
+                return;
+            }
+            if(value < 0) {
+                alert('Number must be greater than or equal to 0');
+                return;
+            }
+        }
+        try {
+            const response = await fetch('/admin/rasaserver1/admin/set_config_value', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({key: key, value: value}),
+            });
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            config = data;
+            alert('Config value updated successfully');
+        } catch (error) {
+            console.error('Error setting config value:', error);
+            alert('Error setting config value:', error);
+        }
+        // refresh
+        GetRasaConfig();
+    }
+
+    async function DeleteConfigValue(key) {
+        try {
+            const response = await fetch('/admin/rasaserver1/admin/delete_config_value', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({key: key}),
+            });
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            config = data;
+            alert('Config value deleted successfully');
+        } catch (error) {
+            console.error('Error deleting config value:', error);
+            alert('Error deleting config value:', error);
+        }
+        // refresh
+        GetRasaConfig();
+    }
+    function resetTable(table) {
+        while (table.rows.length > 1) {
+            table.deleteRow(1);
+        }
+    }
+    function populateTable(config) {
+        var table = document.getElementById('configTable');
+        resetTable(table);
+        for (var key in config) {
+            if (!config.hasOwnProperty(key)) continue;
+
+            // if (keys.indexOf(key) === -1) continue; // can comment this line out to have everything show up
+
+            if (typeof config[key] === 'object' && !Array.isArray(config[key])){
+                // Handle nested objects
+                var nestedSetting = config[key];
+                for (var nestedKey in nestedSetting) {
+                    if (!nestedSetting.hasOwnProperty(nestedKey)) continue;
+
+                    if (typeof nestedSetting[nestedKey] === 'object' && !Array.isArray(nestedSetting[nestedKey])) {
+                        // Handle two-layer nested object
+                        for (var innerKey in nestedSetting[nestedKey]) {
+                            if (!nestedSetting[nestedKey].hasOwnProperty(innerKey)) continue;
+                            addRow(table, `${key}.${nestedKey}.${innerKey}`, nestedSetting[nestedKey][innerKey]);
+                        }
+                    } else {
+                        // Handle one-layer nested object
+                        addRow(table, `${key}.${nestedKey}`, nestedSetting[nestedKey]);
+                    }
+                }
+            } else {
+                // Handle regular keys
+                addRow(table, key, config[key]);
+            }
+        }
+    }
+    function addRow(table, key, value) {
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        cell1.innerHTML = key;
+
+        // Determine input type based on value type
+        if (typeof value === 'boolean') {
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = value;
+            checkbox.onchange = function() {
+                SetConfigValue(key, this.checked);
+            };
+            cell2.appendChild(checkbox);
+        } else if (typeof value === 'number') {
+            var numberInput = document.createElement('input');
+            numberInput.type = 'number';
+            numberInput.value = value;
+            cell2.appendChild(numberInput);
+
+            var updateButton = document.createElement('button');
+            updateButton.innerHTML = 'Update';
+            updateButton.onclick = function() {
+                SetConfigValue(key, parseInt(numberInput.value, 10));
+            };
+            cell2.appendChild(updateButton);
+        } else if (Array.isArray(value)) {
+            var textInput = document.createElement('input');
+            textInput.type = 'text';
+            textInput.value = value.join(',');
+            textInput.onchange = function() {
+                SetConfigValue(key, this.value.split(','));
+            };
+            cell2.appendChild(textInput);
+        } else {
+            var textInput = document.createElement('input');
+            textInput.type = 'text';
+            textInput.value = value;
+            textInput.onchange = function() {
+                SetConfigValue(key, this.value);
+            };
+            cell2.appendChild(textInput);
+        }
+
+        // cell 3 should have button option to delete
+        var deleteButton = document.createElement('button');
+        deleteButton.innerHTML = 'Delete';
+        deleteButton.onclick = function() {
+            DeleteConfigValue(key);
+        };
+        cell3.appendChild(deleteButton);
+    }
+
+    // Event listeners
+    document.getElementById('addDomainForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const payload = {
+            intents: document.getElementById('intents').value.split('\n').filter(line => line.trim() !== ''),
+            entities: document.getElementById('entities').value.split('\n').filter(line => line.trim() !== ''),
+            slots: document.getElementById('slots').value.split('\n').filter(line => line.trim() !== ''),
+            responses: document.getElementById('responses').value.split('\n').filter(line => line.trim() !== '')
+        };
+
+        try {
+            const response = await fetch('/admin/rasaserver1/training_data/domain', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            alert('Domain updated successfully');
+        } catch (error) {
+            console.error('Error updating domain:', error);
+            alert('Error updating domain');
+        }
+    });
+
+    document.getElementById('addNLUForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const payload = {
+            intent_name: document.getElementById('intent').value,
+            examples: document.getElementById('examples').value.split('\n').filter(line => line.trim() !== '')
+        };
+
+        try {
+            const response = await fetch('/admin/rasaserver1/training_data/nlu', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            alert('NLU updated successfully');
+        } catch (error) {
+            console.error('Error updating NLU:', error);
+            alert('Error updating NLU');
+        }
+    });
+
+    document.getElementById('addStoryForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const payload = {
+            story_name: document.getElementById('story_name').value,
+            steps: document.getElementById('steps').value.split('\n').filter(line => line.trim() !== '')
+        };
+
+        try {
+            const response = await fetch('/admin/rasaserver1/training_data/stories', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            alert('Story updated successfully');
+        } catch (error) {
+            console.error('Error updating stories:', error);
+            alert('Error updating stories');
+        }
+    });
+
+    document.getElementById('addRuleForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Prepare the data payload from form inputs
+        const payload = {
+            rule_name: document.getElementById('rule_name').value,
+            conditions: document.getElementById('conditions').value.split('\n').filter(line => line.trim() !== ''),
+            steps: document.getElementById('steps').value.split('\n').filter(line => line.trim() !== '')
+        };
+
+        // Make the API call to the backend
+        try {
+            const response = await fetch('/admin/rasaserver1/training_data/rules', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            
+            // Handle success
+            const data = await response.json();
+            console.log('Success:', data);
+            alert('Rule added successfully');
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error adding rule');
+        }
+    });
+
+    async function fetchAndDisplayDomainData() {
+        const response = await fetch('/admin/rasaserver1/training_data/domain');
+        if (!response.ok) throw new Error('Failed to fetch domain data');
+        const data = await response.json();
+        displayData('domainData', data);
+    }
+
+    // Fetch and display NLU data
+    async function fetchAndDisplayNLUData() {
+        const response = await fetch('/admin/rasaserver1/training_data/nlu');
+        if (!response.ok) throw new Error('Failed to fetch NLU data');
+        const data = await response.json();
+        displayData('nluData', data);
+    }
+
+    // Fetch and display Stories data
+    async function fetchAndDisplayStoriesData() {
+        const response = await fetch('/admin/rasaserver1/training_data/stories');
+        if (!response.ok) throw new Error('Failed to fetch stories data');
+        const data = await response.json();
+        displayData('storiesData', data);
+    }
+
+    // Fetch and display Rules data
+    async function fetchAndDisplayRulesData() {
+        const response = await fetch('/admin/rasaserver1/training_data/rules');
+        if (!response.ok) throw new Error('Failed to fetch rules data');
+        const data = await response.json();
+        displayData('rulesData', data);
+    }
+
+    // Generic function to display data
+    function displayData(containerId, data) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = JSON.stringify(data, null, 2);
+    }
+
+    // Call fetch functions on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchAndDisplayDomainData();
+        fetchAndDisplayNLUData();
+        fetchAndDisplayStoriesData();
+        fetchAndDisplayRulesData();
+    });
+
+    async function RegenerateRasaConfig() {
+        try {
+            const response = await fetch('/admin/rasaserver1/admin/regenerate_default_config');
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            alert('Rasa config regenerated successfully');
+        } catch (error) {
+            console.error('Error regenerating rasa config:', error);
+            alert('Error regenerating rasa config');
+        }
+    }
+</script>

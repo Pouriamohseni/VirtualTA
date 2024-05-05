@@ -1,0 +1,149 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Chat Interface</title>
+    <style>
+        .chat-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .chat-table th, .chat-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .chat-table th {
+            text-align: left;
+        }
+        .chat-history {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .user-message {
+            text-align: right;
+        }
+        .bot-message {
+            text-align: left;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles">
+</head>
+<h3>Menu</h3>
+<a href="/static/html/admin_rasa_config.html">Rasa Config</a><br>
+<a href="/static/html/admin_rasa_chat_logs.html">Rasa Chat Logs</a><br>
+<a href="/static/html/admin_rasa_event_logs.html">Rasa Event Logs</a><br>
+<a href="/static/html/admin_rasa_chat_testing.html">Rasa Chat Testing</a><br>
+<a href="/static/html/admin_rasa_session_management.html">Rasa Session Management</a><br>
+<body>
+    <h3>RasaServer1 Chat Testing</h3>
+    <div class="chat-history">
+        <table class="chat-table" id="chatTable">
+            <thead>
+                <tr>
+                    <th>Side</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Chat history will be added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <input type="text" id="userIdInput" placeholder="User ID"><br>
+        <input type="text" id="threadIdInput" placeholder="Thread ID">
+        <textarea id="messageInput" placeholder="Type your message here..."></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <br><br>
+    <button onclick="ExportConversation()">Export Conversation</button>
+
+    <script>
+        async function sendMessage() {
+            const userId = document.getElementById('userIdInput').value;
+            const threadId = document.getElementById('threadIdInput').value;
+            const message = document.getElementById('messageInput').value;
+            const tableBody = document.getElementById('chatTable').getElementsByTagName('tbody')[0];
+
+            // Add the user message to the table immediately for a more responsive UI
+            const newRow = tableBody.insertRow();
+            newRow.innerHTML = `<td class="user-message">User</td><td class="user-message">${message}</td>`;
+
+            // Clear the message input box
+            document.getElementById('messageInput').value = '';
+
+            // POST the message to the backend
+            const response = await fetch('/admin/rasaserver1/generate_response', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ user: userId ? userId : null, sender: threadId ? threadId : null, message: message }),
+            });
+
+            const data = await response.json();
+
+            // Add the bot response to the table
+            if (!response.ok) {
+                console.error('Failed to send message', data);
+                alert('Error: ' + (data.error || 'Failed to send message'));
+            } else {
+                const botResponse = data[0]?.text || "No response";
+                document.getElementById('threadIdInput').value = data[0].thread_id;
+                const newRow = tableBody.insertRow();
+                newRow.innerHTML = `<td class="bot-message">Bot</td><td class="bot-message">${botResponse}</td>`;
+            }
+        }
+
+        async function ExportConversation() {
+            const threadID = document.getElementById('threadIdInput').value;
+            try {
+                if (!threadID) {
+                    throw new Error('No thread ID found');
+                }
+                const response = await fetch(`/api/threads/${threadID}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                // Convert data to CSV
+                const csvString = convertToCSV(data);
+                downloadCSV(csvString, `conversation-${threadID}.csv`);
+            } catch (error) {
+                console.error('Error:', error);
+                alert(error.message);  // Display the error message to the user if needed
+            }
+        }
+
+        function convertToCSV(data) {
+            const csvRows = [];
+            // Headers
+            const headers = Object.keys(data[0]).join(',');
+            csvRows.push(headers);
+
+            // Rows
+            data.forEach(item => {
+                const values = Object.keys(item).map(key => {
+                    const escaped = ('' + item[key]).replace(/"/g, '\\"');  // Escape double quotes
+                    return `"${escaped}"`;  // Ensure each field is enclosed in double quotes
+                });
+                csvRows.push(values.join(','));
+            });
+
+            return csvRows.join('\n');  // Join all rows into a single CSV string
+        }
+
+        function downloadCSV(csvString, filename) {
+            const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+    </script>
+</body>

@@ -1,0 +1,178 @@
+<head>
+    <link rel="stylesheet" href="/styles">
+</head>
+<h3>Menu</h3>
+<a href="/static/html/admin_rasa_config.html">Rasa Config</a><br>
+<a href="/static/html/admin_rasa_chat_logs.html">Rasa Chat Logs</a><br>
+<a href="/static/html/admin_rasa_event_logs.html">Rasa Event Logs</a><br>
+<a href="/static/html/admin_rasa_chat_testing.html">Rasa Chat Testing</a><br>
+<a href="/static/html/admin_rasa_session_management.html">Rasa Session Management</a><br>
+
+<h3>Create User</h3>
+<form id="createUserform">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name" required><br>
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name" required><br>
+    <label for="mfa_enabled">MFA Enabled:</label>
+    <input type="checkbox" id="mfa_enabled" name="mfa_enabled"><br>
+</form>
+<button onclick="createUser()">Create User</button>
+
+MFA Secret: <input type="text" id="mfaSecret"></span>
+
+<h3>Enable MFA</h3>
+<form id="enableMFAForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+</form>
+<button onclick="enableMFA()">Enable MFa</button>
+
+<h3>Rasa Session Management</h3>
+<table id="sessionTable">
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Expires</th>
+        <th>Options</th>
+    </tr>
+</table>
+
+
+<h3>Users</h3>
+<table id="userTable">
+    <tr>
+        <th>Email</th>
+        <th>Options</th>
+    </tr>
+</table>
+
+
+
+
+<script>
+    window.onload = async function() {
+        getSessions();
+        getUsers();
+    }
+    async function getSessions() {
+        try {
+            const response = await fetch('/api/rasa/sessions');
+
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+        } catch(err) {
+            console.error('There was a problem with the fetch operation:', err);
+        }
+    }
+    function populateSessions(sessions) {
+        const table = document.getElementById('sessionTable');
+        sessions.forEach(session => {
+            const row = table.insertRow(-1);
+            const idCell = row.insertCell(0);
+            const emailCell = row.insertCell(1);
+            const expiresCell = row.insertCell(2);
+            const optionsCell = row.insertCell(3);
+
+            idCell.innerHTML = session.id;
+            emailCell.innerHTML = session.email;
+            expiresCell.innerHTML = session.expires;
+            optionsCell.innerHTML = `<button onclick="deleteSession(${session.id})">Delete</button>`;
+        });
+    }
+
+    // session table option stuff
+    async function revokeSession(id) {
+        try {
+            const response = await fetch(`/admin/sessions/revoke/${id}`, {
+                method: 'POST',
+            });
+
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+
+        } catch(err) {
+            console.error('There was a problem with the fetch operation:', err);
+        }
+    }
+
+
+
+    // user table options stuff
+    async function banUser(id) {
+
+    }
+
+    async function unbanUser(id) {
+
+    }
+
+    async function adminUser(id) {
+
+    }
+    
+    async function unadminUser(id) {
+
+    }
+
+    async function createUser() {
+        const form = document.getElementById('createUserform');
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => data[key] = value);
+
+        try {
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            const json = await response.json();
+
+            console.log(json.msg);
+            alert(json.msg);
+
+            document.getElementById('mfaSecret').value = json.mfa_secret;
+        } catch(err) {
+            console.error('There was a problem with the fetch operation:', err);
+        }
+    }
+
+    async function enableMFA() {
+        const form = document.getElementById('enableMFAForm');
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch('/enable_mfa', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: formData.get('username'),
+                }),
+            });
+
+            const json = await response.json();
+
+            console.log(json.msg);
+            alert(json.msg);
+
+            document.getElementById('mfasecret').value = json.mfa_secret;
+
+        } catch(err) {
+            console.error('There was a problem with the fetch operation:', err);
+        }
+    }
+</script>

@@ -1,0 +1,731 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - gpa
+  - undergraduategpa
+  - graduategpa
+  - enrollment_apt
+  - grad_commence
+  - commencement_duration
+  - admission1
+  - admission2
+  - admission3
+  - admission4
+  - admission5
+  - admission6
+  - admission7
+  - admission8
+  - admission9
+  - admission10
+  - admission11
+  - admission12
+  - admission13
+  - admission14
+  - admission15
+  - admission16
+  - admission17
+  - admission18
+  - admission19
+  - admission20
+  - admission23
+  - admission24
+  - testing
+  - usecase
+  - hold
+  - transcriptHold
+  - withrawUTD
+  - transcriptreq
+  - ask_academic_standing_GPA
+  - events
+  - temoc
+  - housing_meal
+  - take_future_class
+  - richardbenson
+  - deanofstudents
+  - studentsuccesscenter
+  - utdlibrary
+  - elearning
+  - emergency
+  - parking 
+  - degrees
+  - certifications
+  - schools
+  - honors
+  - education_abroad
+  - athletics
+  - esports
+  - recreation
+  - paytuition
+  - classes
+  - classes_offcampus
+  - major_change
+  - minor
+  - core
+  - limithours
+  - cometcard
+  - cometcard2
+  - cometcard3
+  - cometcard4
+  - cometcard5
+  - cometcard6
+  - cometcard7
+  - cometcard8
+  - cometcard9
+  - headcovering
+  - galaxy1
+  - galaxy2
+  - galaxy3
+  - galaxy4
+  - duo
+  - y_courseinfo
+  - y_degreeinfo
+  - y_orientation
+  - y_careerhelp
+  - y_healthandwellness
+  - y_sociallife
+  - y_campusnavigation
+  - y_campusresources
+  - y_csmentoringcenter
+  - y_hackathonguidance
+  - y_gradrequirements
+  - y_academicadvising
+  - y_scholarship
+  - y_housing 
+  - y_accessibility
+  - y_timemanagement
+  - y_dininginfo
+  - y_gym
+  - y_athletics 
+  - y_bookstore
+  - whoosh
+  - address
+  - aboututd
+  - alumni
+  - counseling
+  - genai
+  - netid
+  - mobileapp
+  - y_ecsadvising
+  - y_ifriendprogram
+  - y_internationalweek
+  - y_internationalstudentorientation
+  - y_internationaladmissions
+  - y_utddirectory
+  - y_utdhumanresources
+  - y_oitservicedesk
+  - y_techknowledgybar
+  - y_campuslife
+  - y_greeklife
+  - y_studentspaces
+  - y_studentunion
+  - y_workatutdallas
+  - y_studentmedia
+  - y_studentachievements
+  - y_utdtalk
+  - y_studentcounselingcenter
+  - y_busservice
+  - y_campushealthpromotion
+  - y_newdimensionsutd
+  - y_utdoit 
+  - y_openaccesslabs
+  - y_utdesign
+  - y_utdbighowdy
+  - y_utdimmigrationadvising
+  - y_utdtoday
+  - y_youarewelcomehere
+  - y_myutd 
+  - y_academicresources
+  - y_testingcenter
+  - y_teachingresources
+  - y_utdgrades
+  - y_cometgivingdays
+  - name 
+  - howareyou
+  - standfor
+  - joke
+  - sing
+  - oldest
+  - youngest
+  - socialmedia
+  - utdcost
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - fail
+  - dgrade
+  - fasttrack
+  - parkingcitation
+  - dance
+  - employeebenefits
+  - employeedev
+  - erikjonsson
+  - finalexam
+  - immunizations
+  - helpdesk
+  - askbot
+  - generaladmission
+  - academic_dishonesty
+  - newsletter
+  - ezpay
+  - error
+
+responses:
+  utter_greet:
+  - text: "Hello Comet! How can I assist you?💫"
+  - text: 'Hey! How are you Comet?💫'
+  - text: 'Hey there Comet!💫'
+  - text: 'Hey Comet, How can I assist you today?💫'
+
+  utter_goodbye:
+  - text: "Bye Comet💫"
+  - text: "Have a wonderful day Comet!💫"
+
+  utter_gpa:
+  - text: "Sure, are you a graduate or undergraduate student?"
+
+  utter_undergraduategpa:
+  - text: "The grade scale for an undergraduate student is as follows: \n
+  A+ & A = 4.000, A- = 3.670, B+ = 3.330, B = 3.000, 
+  B- = 2.670, C+ = 2.330, C = 2.000, C- = 1.670, C- = 1.670, 
+  D+ = 1.330, D = 1.000, D- = 0.670, F = 0.000. \n
+  To calculate your GPA for the semester, 
+  multiply the number of credit hours for a specific class 
+  by the letter grade point listed above. Do that for each class 
+  then divide that total by the number of credit hours you are taking this semester
+  to calculate your GPA. You can also use this website: https://fye.utdallas.edu/gpa-calculator/"
+
+  utter_graduategpa:
+  - text: "You can check more about your GPA here: https://catalog.utdallas.edu/2020/graduate/policies/grades"
+
+  utter_enrollment_apt:
+  - text: "During registration periods, the enrollment appointment is your date and time slot you are able to registration for the term. \n
+  To locate your enrollment appointment, go to your UTD Student Center, Manage My Class tile, Enrollment Appointments page and select the appropriate term. \n
+  Register for classes after your enrollment appointment begins for the term. Online registration is available until the published last day of late registration."
+
+  utter_grad_commence:
+  - text: "Commencement refers to the ceremony, which is an opportunity for students to celebrate their academic accomplishments with their peers, family and friends. \n
+  Participation in commencement does not guarantee or indicate degree completion. \n
+  Graduation is a four-step process consisting of applying for graduation, updating your diploma name and address in Orion, completing all academic requirements and settling all financial obligations."
+
+  utter_commencement_duration:
+  - text: "Each Commencement Ceremony lasts approximately 1.5 to 2 hours."
+
+  utter_admission1:
+  - text: No, but applicants must have either a bachelor's degree in computer science or a bachelor's in some other discipline and a master's in computer science.
+  - text: No, however, applicants are required to hold either a bachelor's degree in computer science or a bachelor's in another field, along with a master's in computer science.
+  - text: No, applicants aren't required to have a master's degree, but they must have either a bachelor's degree in computer science or a bachelor's in another discipline and a master's in computer science.
+  - text: That's correct, but applicants must hold either a bachelor's degree in computer science or a bachelor's in another field, as well as a master's in computer science.
+  - text: Correct, but it's important to note that applicants must have either a bachelor's degree in computer science or a bachelor's in another field, along with a master's in computer science.
+  - text: Affirmative, however, applicants must possess either a bachelor's degree in computer science or a bachelor's in another discipline, supplemented by a master's in computer science.
+  
+  utter_admission2:
+  - text: 'For step-by-step admission application instructions, please visit the Office of Admission and Enrollment Services: graduate-admissions.utdallas.edu'
+  - text: To find detailed admission application instructions, please check out the Office of Admission and Enrollment Services at graduate-admissions.utdallas.edu
+  - text: 'For detailed guidance on the admission application process, please refer to the Office of Admission and Enrollment Services website: graduate-admissions.utdallas.edu'
+  - text: 'To learn more about the admission application process, visit the Office of Admission and Enrollment Services online: graduate-admissions.utdallas.edu'
+  - text: 'For comprehensive instructions on applying for admission, visit the Office of Admission and Enrollment Services website: graduate-admissions.utdallas.edu'
+  - text: 'To access detailed admission application guidelines, please visit the Office of Admission and Enrollment Services online: graduate-admissions.utdallas.edu'
+  
+  utter_admission3:
+  - text: Please visit the Office of Admission and Enrollment Services for an online application https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/apply/.
+  - text: You can find the online application form at the Office of Admission and Enrollment Services. https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/apply/
+  - text: To access the online application form, go to the Office of Admission and Enrollment Services. https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/apply/
+  - text: For the online application form, head over to the Office of Admission and Enrollment Services. https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/apply/
+  - text: For the online application, go to the Office of Admission and Enrollment Services. https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/apply/
+  
+  utter_admission4:
+  - text: Please visit the Office of Admission and Enrollment Services for domestic and international application deadlines. https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/deadlines-and-fees/
+  
+  utter_admission5:
+  - text: For the M.S. program, a minimum GRE score of 1200 (verbal plus quantitative) is acceptable. For the Ph.D. program, a minimum GRE score of 1300 (verbal plus quantitative) is acceptable. Applicants with borderline scores who also have a high GPA may still be considered by the admissions committee.
+  
+  utter_admission6:
+  - text: The minimum TOEFL scores are 213 (computer-based), 550 (paper-based) and 80 (Internet-based).
+  
+  utter_admission7:
+  - text: UTD 6897
+  
+  utter_admission8:
+  - text: 'For International and Domestic Applicants: Office of Admission & Enrollment Services The University of Texas at Dallas 800 W. Campbell Rd. Richardson, TX 75080-3021'
+  
+  utter_admission9:
+  - text: We are not in a position to assess your chances until you apply and go through the admissions process. If you meet the minimum requirements described in the UTD Graduate Catalog, though, your chances of being admitted are high.
+  
+  utter_admission10:
+  - text: If an application packet is complete, processing typically takes six weeks. Applications will be delayed if incomplete.
+  
+  utter_admission11:
+  - text: There is a six-year window for completing the 33-hour M.S. degree. All coursework must be completed within the six-year timeframe. This timeframe also applies to all transfer coursework.
+  
+  utter_admission12:
+  - text: There is a 10-year window for completing the 90-hour Ph.D. program. All coursework must be completed within this 10-year timeframe. This timeframe also applies to all transfer coursework.
+  
+  utter_admission13:
+  - text: Please visit the Bursar Office to view the tuition and fees schedule. https://bursar.utdallas.edu/
+  
+  utter_admission14:
+  - text: "You must first be admitted to the CS graduate program as a degree-seeking student. You may then attend the transfer/waiver seminar held at the beginning of every semester. You would then fill out the necessary transfer petition paperwork and submit official transcripts, course descriptions and syllabi for these courses. All transfer petitions are processed by the Computer Science Department and submitted to the Graduate Dean's Office and the Office of the Registrar for final approval. To qualify for transfer credit, the grade earned in the computer science graduate course must be a B or higher, and the course must not be a correspondence or extension course. An M.S. student may petition to transfer no more than 8 graduate credit hours. A Ph.D. student may petition to transfer no more than 36 graduate credit hours. Petitions may be approved at the time of enrollment, but no actual acceptance of transfer credit will occur until after you have completed nine credit hours of courses at UT Dallas with a grade-point average of at least 3.0. "
+  
+  utter_admission15:
+  - text: Students files are carefully reviewed for admission, and all deficiencies are noted for all tracks of study. Students are responsible for completing only those prerequisites listed on the track of study that they choose as a condition of their admittance to the computer science graduate program. Students should see an adviser if they want to initiate a change of tracks after admission. Having all deficiencies listed allows this change to take place in a timely manner rather than forcing students to wait for a new admissions letter. In addition, students must complete all prerequisites for courses listed in the UT Dallas Graduate Catalog before taking those courses. Prerequisite courses are separate from the courses listed in your admissions letter.
+  
+  utter_admission16:
+  - text: Students who wish to apply for waivers should attend the transfer/waiver seminar during their first semester. A waiver is appropriate if you have studied the material in some other course(s) and have received a grade of B or higher. During the transfer/waiver period, students should provide copies of their official transcripts showing grades earned, course descriptions, and a completed and signed waiver form. All paperwork should be submitted to the computer science graduate advising office by the specified deadline.
+  
+  utter_admission17:
+  - text: ' The UTD International Student Services Office (ISSO) will work with you to issue your I-20 and answer your immigration-related questions. Please visit the ISSO New Student Procedures page for step-by-step instructions. https://isso.utdallas.edu/joining-ut-dallas/apply-i-20/'
+  
+  utter_admission18:
+  - text: You will not receive your I-20 with your official letter of acceptance. The UTD International Student Services Office (ISSO) issues all I-20s for international students. Once an international applicant is admitted to UTD, the ISSO will work with you to issue your I-20 and answer your immigration-related questions. The ISSO will contact you by e-mail after receiving your file from Enrollment Services. Please visit the ISSO New Student Procedures page for more information. https://isso.utdallas.edu/
+  
+  utter_admission19:
+  - text: Please see the UTD Graduate Catalog. https://catalog.utdallas.edu/now/graduate/home/
+  
+  utter_admission20:
+  - text: Most full-time CS graduate students take nine credit hours per semester, which is equal to three classes, although some students take 12 credit hours (four classes). Taking one or two core courses with one or two electives is advisable. Taking three core courses in one semester is not allowed. Before you register for classes, you will meet with a graduate CS adviser to determine your track of study and to discuss the courses you should take. For a complete list of graduate courses in computer science, please see the UTD Graduate Catalog. https://catalog.utdallas.edu/now/graduate/home/
+  
+  utter_admission23:
+  - text: A good sources of information is our brief faculty research summaries. https://cs.utdallas.edu/research/research-activities/
+  
+  utter_admission24:
+  - text: |-
+      Below are the types of financial assistance for full-time graduate students, and all are highly competitive. (Part-time students are not eligible for financial assistance.)Students desiring financial assistance are encouraged to apply to our graduate program in computer science as early as possible.
+      Jonsson School Distinguished Graduate Fellows are selected and supported by the Erik Jonsson School of Engineering and Computer Science. Please speak to an adviser for more information. Teaching assistants (TAs) are selected and supported by the Computer Science Department based on student's academic merit and prior research experience. When students are considered for admission, they are also considered by the departments selection committee for teaching assistantships. There is no need to apply separately. Most of our teaching assistantships are offered to students admitted to start in fall semesters. Students will be informed of any TA support no later than one week after the admission application deadline. (Please note that there are different deadline dates for domestic and international students.) Research assistants (RAs) are supported by individual computer science faculty through faculty members research grants. Prospective students may contact faculty members directly to discuss their research interests and possible RA support. Please view our brief faculty research summaries and our detailed faculty research summaries. UT Dallas Cyber Security Scholarship Program (CyberCorp: Scholarship for Service (SFS) scholarship program) UT Dallas invites applications for a graduate-level scholarship for service program, which provides students with a full scholarship for two years in exchange of service in federal government for a period equivalent to the length of the scholarship. The program enables government agencies to recruit from a highly qualified pool of students for internships and permanent positions.
+
+  utter_testing:
+  - text: Depending on your professor, you may need to reserve a time slot at the testing center 48 hours before your exam
+  
+  utter_usecase:
+  - text: I can help you with a bunch of things!
+  
+  utter_hold:
+  - text: 'Holds can prevent registration or transcript processing. When you have a hold affecting your registration or official transcript processing, you need to take steps to resolve the problem by contacting the department that placed the hold. You can check your holds in Orion: Log in to Orion. Choose the UTD Student Center. Choose the Tasks tile. Your holds will be listed with the department that can release the hold.'
+
+  utter_transcriptHold:
+  - text: There are two kinds of holds that can prevent the purchase of official transcripts, financial and non-financial holds. Financial holds can only be released by the Bursars Office. Non-financial holds are released by the placing department. Log in to Orion. Choose the UTD Student Center. Choose the Tasks tile. Your holds will be listed with the department that can release the hold.
+  
+  utter_withrawUTD:
+  - text: If you completely withdrew from the previous semester before the 20th class day, the Office of the Registrar strongly recommends that you review your academic record online, ie, update address, transfer credit from another institution. For undergraduate programs, those who were previously enrolled at UT Dallas, may return to the University by re-applying through Apply Texas. For graduate programs, complete and submit a re-entry form (PDF). All reentry requests for a semester must be received 10-days prior to the first day of the semester (full-term). If you have not attended UT Dallas in three long (fall and spring) semesters and you left UT Dallas on probationary status, you must apply for readmission.
+  
+  utter_transcriptreq:
+  - text: Login to Orion (need an Active NetID) Once logged in to Orion, choose the My Academics tile, choose the “Order Official Transcript” link. Login to Orion via the Galaxy webpage.
+  
+  utter_ask_academic_standing_GPA:
+  - text: The UTD Undergraduate Policies and Procedures defines academic good standing as  maintaining a GPA of at least 2.000 on a 4.000 scale, which equates to a C average. Additionally, students are expected to maintain a GPA of 2.000 in their major-related courses to remain in academic good standing.”
+  
+  utter_events:
+  - text: You can check more information about the upcoming event''s at https://calendar.utdallas.edu/. The UT Dallas website should have more information about the event.
+  
+  utter_temoc:
+  - text: Temoc is the current school mascot of the University of the Texas at Dallas.
+
+  utter_housing_meal:
+  - text: "You can view your University Housing and meal plan charges on your student account statement via the Bursar Office EZPay page. You may pay those charges directly to the Bursar Office using one of their various payment options."
+  
+  utter_take_future_class:
+  - text: "Your flowchart will help you to identify classes which you are eligible to take each semester. \n 1. Download or print your degree flowchart. \n 2. Pull up your course history in ORION Student Center > My Academics. \n 3. On your flowchart, cross off all the classes you have completed and are enrolled in, follow the arrows and circle all your options for next semester. \n • CS/ SE majors: prioritize taking courses that are pre-requisites to more CS/ SE courses. \n • BMEN/ MECH/ EE/ CE majors: Prioritize taking courses that are listed on or connected to your critical path (thick bold lines on your flowchart). \n • After filling out your flowchart, you are always welcome to contact your Academic Advisor to confirm your course selections. " 
+
+  utter_richardbenson:
+  - text: "Richard Benson is the current president of the University of Texas at Dallas. In 2006, he became the 4th president the university ever had. \n During his tenure, UTD experienced significant growth and development, expanding its academic programs, research initiatives, and campus infrastructure. \n Under Benson's leadership, UTD strengthened its research capabilities, increased its national and international visibility, and enhanced its reputation for academic excellence. \n He focused on fostering interdisciplinary collaborations, promoting innovation and entrepreneurship, and improving the student experience." 
+  
+  utter_deanofstudents:
+  - text: "The Dean of Students is a senior administrative position within a university or college responsible for overseeing various aspects of student life and support services. Here are some key responsibilities and roles typically associated with the Dean of Students: \n Student Affairs Oversight: The Dean of Students typically oversees the Office of Student Affairs or a similar department responsible for providing a wide range of services and programs to support student success and well-being. \n Student Conduct and Discipline: The Dean of Students often oversees the development and enforcement of student conduct policies and procedures. They may work closely with conduct officers and review disciplinary cases, ensuring fair and consistent outcomes. \n Student Advocacy: The Dean of Students serves as an advocate for students, addressing their concerns and advocating for their needs within the institution. They may work to ensure that students' voices are heard in decision-making processes and policies. \n Crisis Management and Student Support: In times of crisis or emergencies, such as natural disasters or student emergencies, the Dean of Students plays a critical role in coordinating support services, providing assistance to affected students, and ensuring the safety and well-being of the campus community. \n Student Engagement and Leadership Development: The Dean of Students often oversees programs and initiatives aimed at enhancing student engagement, leadership development, and campus involvement. This may include overseeing student clubs and organizations, leadership programs, and campus events. \n Student Health and Wellness: The Dean of Students may work closely with health and counseling services to promote student wellness and mental health. They may oversee initiatives related to health education, prevention programs, and access to healthcare services. \n Student Housing and Residence Life: In institutions with on-campus housing, the Dean of Students may oversee residence life programs, policies, and facilities. They may work to create a positive living and learning environment for students residing on campus. \n Community Outreach and Partnerships: The Dean of Students may collaborate with external partners, such as local community organizations and government agencies, to address issues affecting students and the broader community. \n Overall, the Dean of Students plays a vital role in creating a supportive and inclusive campus environment that promotes student success, well-being, and personal development. They work collaboratively with various stakeholders to address the diverse needs of students and enhance the overall student experience. You can find more information or report conduct on the UTD dean of students website, https://deanofstudents.utdallas.edu/." 
+  
+  utter_studentsuccesscenter:
+  - text: "The Student Success Center at the University of Texas at Dallas (UTD) is a central hub dedicated to providing comprehensive support services and resources to enhance student success and academic achievement. Here's an overview of what the Student Success Center typically offers: \n Academic Advising: The Student Success Center provides academic advising services to help students navigate their academic journey, including course selection, degree planning, and academic goal-setting. Advisors assist students in understanding degree requirements and academic policies. \n Tutoring and Supplemental Instruction: The center may offer tutoring services and supplemental instruction in various subjects to help students excel in their coursework. This may include drop-in tutoring, group study sessions, and workshops on study skills and academic strategies. \n Career Development: The Student Success Center may offer career counseling, workshops, and resources to help students explore career options, develop job search strategies, and prepare for internships, co-op experiences, and post-graduation employment. \n Student Success Workshops: The center may host workshops and seminars on topics such as time management, effective study habits, stress management, and academic skills development to support students in achieving their academic and personal goals. \n Academic Support Programs: The Student Success Center may administer academic support programs designed to assist specific student populations, such as first-year students, transfer students, or students on academic probation. These programs may include mentoring, academic coaching, and peer support initiatives. \n Accessibility Services: The center may provide accommodations and support services for students with disabilities to ensure equal access to educational opportunities. This may include assistance with accommodations, adaptive technology, and disability-related advocacy. \n Student Success Resources: The center may maintain a library of resources, including online guides, handouts, and referrals to other campus support services, to help students navigate academic challenges and access additional support as needed. \n Student Success Initiatives: The Student Success Center may develop and implement initiatives and programs aimed at promoting student retention, persistence, and graduation. This may include early alert systems, intervention programs for at-risk students, and initiatives to improve student engagement and satisfaction. \n Overall, the Student Success Center at UT Dallas plays a crucial role in supporting student achievement, personal development, and overall well-being by providing a wide range of services and resources tailored to meet the diverse needs of students. You can find out more about the student success center on their website, https://studentsuccess.utdallas.edu/." 
+  
+  utter_utdlibrary:
+  - text: "The University of Texas at Dallas (UTD) is home to the Eugene McDermott Library, which serves as the central library facility on campus. Here's an overview of the UTD Library: \n Name: Eugene McDermott Library is named after Eugene McDermott, one of the founders of Texas Instruments and a significant philanthropist whose contributions helped establish UTD. \n Location: The library is located at the heart of the UTD campus in Richardson, Texas, providing easy access to students, faculty, and staff. \n Collections: The library offers extensive collections of print and electronic resources, including books, journals, databases, multimedia materials, and special collections. These resources cover a wide range of subjects to support teaching, learning, and research across various academic disciplines. \n Study Spaces: The library provides a variety of study spaces to accommodate different learning preferences and needs. These include quiet study areas, group study rooms, computer labs, and collaborative workspaces. The library is designed to offer comfortable and conducive environments for individual and group study sessions. \n Technology and Services: Eugene McDermott Library is equipped with modern technology and offers a range of services to support research and scholarly activities. This includes access to online databases and digital resources, research assistance from librarians, interlibrary loan services, printing and copying facilities, and technology lending programs. \n Research Support: Librarians at the UTD Library provide research assistance to help students and faculty locate and evaluate information sources, develop research strategies, and properly cite sources. They offer individual consultations, workshops, and online guides to support research endeavors. \n Events and Programming: The library hosts various events, workshops, and exhibitions throughout the year to engage the campus community and promote academic enrichment. These may include author talks, lectures, art displays, film screenings, and educational programs related to library resources and services. \n Community Engagement: The library actively engages with the UTD community and partners with other academic departments, research centers, and community organizations to provide comprehensive library services and resources. It serves as a hub for intellectual exchange and collaboration within the university and beyond. \n Overall, the Eugene McDermott Library at the University of Texas at Dallas plays a vital role in supporting the university's academic mission by providing access to information, fostering research and scholarship, and facilitating learning and intellectual inquiry. You can find out more information about the UTD library on their website, https://library.utdallas.edu/." 
+  
+  utter_elearning:
+  - text: "E-learning also known as Blackboard Collaborate is a tool used by UTD faculty and professors to assign and give homeworks/exams and teach courses virtually online when school is not in session. You can access e-learning using your UT Dallas net-id and password through this link at https://elearning.utdallas.edu/ultra/institution-page."
+  
+  utter_emergency: 
+  - text: "You can check the https://emergency.utdallas.edu/ for emergency alerts on campus, for faster service, please call 911 if this is an off-campus emergency, the UTD Police number is (972)-883-2222. \n You can also reach out to emergency management at (972)-883-2420. UTD Alert UT Dallas will send text alerts in the event of an emergency, inclement weather or a disruption in normal operations. \n The message will be sent to the mobile numbers listed in the records of students, faculty and staff. Parents and others can sign up by texting UTDALERT to 888777." 
+  
+  utter_parking:
+  - text: "Parking at the University of Texas at Dallas (UTD) is managed by the Auxiliary Services. Here’s what you need to know, \n 1. Parking Permits - Who Can Get Permits? - Current UTD visitors, students, faculty, and staff are eligible for parking permits. How to Obtain a Permit? - You can purchase a permit either in person from the Parking Office or online. The Parking Office accepts credit and debit cards, but not cash or checks. \n Types of Permits - Students - Orange, Evening Orange, Gold, or Green permits. \n On-Campus Residents - Required to purchase housing permits. They can also get a “combo” permit to park in commuter spaces during the day. \n Faculty and Staff - Purple, Orange, Evening Orange, Gold, or Green permits. \n Permit Privileges - Purchasing a permit allows you to park according to the privileges of the specific permit you bought. However, it doesn’t guarantee a specific parking space. \n Grace Periods - Commuter Students, Faculty, and Staff - Green parking is allowed without a permit from the first day of class until Census Day during Fall and Spring semesters. Summer semester requires a permit at all times. \n On-Campus Residents - They can park in their respective housing lots without a permit from scheduled University Housing move-in dates until Census Day. \n Enforcement - All other parking areas are enforced throughout the year, except during grace periods1. \n 2. Public Transportation - There is no free parking on the UTD campus for students, faculty, or staff. \n If you prefer public transportation, there are nearly 2,000 free parking spaces available at the Cityline/Bush Train Station Park-and-Ride located at 1300 E President George Bush Tpke, Richardson, TX 750822. \n 3. Metered Parking - UTD has over 300 cashless, Pay-by-Space metered parking spaces across campus in Parking Structures 1, 3, and 4, as well as Lots F, G, and M West. These spaces allow convenient payment through the Pay-by-Space systems. \n For more details, you can visit the UTD Parking website. Remember to plan ahead and stay informed about lot closures!"
+
+  utter_degrees:
+  - text: "From the arts and sciences to engineering and management, UT Dallas’ degree programs are honed to produce world-class graduates. You can learn explore the many degrees and majors we offer here: https://www.utdallas.edu/academics/degrees/"
+
+  utter_certifications:
+  - text: "The University of Texas at Dallas offers a variety of academic and professional certificate programs. Check them out here: https://www.utdallas.edu/academics/certificates/"
+
+  utter_schools:
+  - text: "Our seven schools embody the wealth of educational opportunities offered at the undergraduate, graduate and professional levels. Check them out here: https://www.utdallas.edu/academics/schools/"
+
+  utter_honors:
+  - text: "The Hobson Wildenthal Honors College hosts academic, social and cultural events for students to pursue intellectual excellence and curiosity across the disciplines. Explore our honors college here: https://honors.utdallas.edu/"
+
+  utter_education_abroad:
+  - text: "UT Dallas Education Abroad offers many international opportunities that will expand your worldview. Explore them here: https://ie.utdallas.edu/go-abroad/"
+
+  utter_athletics:
+  - text: "UTD has intercollegiate teams that you can cheer for. Check them out here: https://utdcomets.com/. If you would like to learn more about intramural teams, type recreation in the chat."
+
+  utter_esports:
+  - text: "UTD has esports teams thag you can cheer for. Check them out here: https://esports.utdallas.edu/"
+
+  utter_recreation:
+  - text: "UTD offers intramural sports. Sign up to play intramural sports and stay fit at indoor and outdoor recreation facilities. Learn more here: https://urec.utdallas.edu/"
+
+  utter_paytuition:
+  - text: "To make payment online you must use the EZPay system. Otherwise you may pay at the Bursar’s Office. An installment plan is available during the fall and spring semesters. Please do not wait for a bill to be mailed to you. Whether you receive a bill you are still responsible for making all payments by the payment deadline."
+
+  utter_classes:
+  - text: Freshmen must see their advisor to register. Those with permission may register online using the Orion system. After the beginning of classes students must see their advisor to drop or withdraw from classes.
+
+  utter_classes_offcampus:
+  - text: Students should meet with their advisor first to find out if the class they are going to take off campus will transfer at UT Dallas. 
+
+  utter_major_change:
+  - text: Meet with an academic advisor in the advising office of the newly desired major before registration and no later than the first day of classes of a semester/term. You will be provided with online instructions on how to submit a request to change your major after your meeting with an academic advisor.  Students with a cumulative GPA below 2.00 may only change their major with permission from the Associate Dean from both the sending and receiving school. If the change of major is approved, the student will then be responsible for meeting all program requirements and course prerequisites of the catalog in effect at the time of the change.
+
+  utter_minor:
+  - text: Meet with your assigned academic advisor in the advising office of your declared major. The advisor will show all of the classes you need to take in order to get the minor you want. You will be provided with online instructions on how to submit a request to add your major after your meeting with your academic advisor. 
+
+  utter_core:
+  - text: The course lookup is a great resource to use. It can be accessed through the UT Dallas homepage and is listed under student essentials as well as a link located under our “quick links.” To begin with, make sure you are in the correct semester. Once you are in the correct semester, click on the arrow next to “Core Curriculum.” Highlight whichever core you are looking for and then hit “search.” This will showcase all of the classes available for that semester for the core requirement that you were looking for.
+
+  utter_limithours:
+  - text: The maximum number of hours a student can take in a fall or spring semester is 19. Students wishing to register for more than 19 semester credit hours must have the permission of the Associate Dean of their school.  Students in the School of Natural Sciences and Mathematics will need to email Dr. Michael Biewer. Students authorized to enroll in more than 19 semester credit hours in a long semester may not withdraw from any class without permission of the associate dean. Failure to secure that permission before withdrawing from a class will limit the student to a maximum of 19 semester credit hours in future semesters.
+
+  utter_cometcard: 
+  - text: All students, staff, faculty and affiliates who use University services.
+
+  utter_cometcard2:
+  - text: The Comet Card is the official Campus ID card for all UT Dallas students, faculty, and staff. The card allows the use of campus facilities and services and offers optional campus accounts for on-campus purchases and payments.
+
+  utter_cometcard3:
+  - text: You need a government issued photo ID (USA driver's license, passport, etc.). Students need to wait at least 48 hours from when they registered for classes for the current or future semester. (Exceptions may apply for students participating in freshmen orientation.) Staff and faculty need to request a card via the eCat system.
+
+  utter_cometcard4:
+  - text: Your first Comet Card will be issued at no cost. There is a $20 fee for a replacement.
+
+  utter_cometcard5:
+  - text: Comet Cards are issued only at the Comet Card Office. The Comet Card Office is located in the second floor of the SSA Building (main entrance).
+
+  utter_cometcard6:
+  - text: Report the loss immediately using the GET Portal or by contacting the Comet Card Office.
+
+  utter_cometcard7:
+  - text: Simply fill out an eCat request. An official government photo ID is needed to receive a Comet Card.
+
+  utter_cometcard8:
+  - text: No. Tuition and mandatory fees cannot be paid by the Comet Card.
+
+  utter_cometcard9:
+  - text: Application for affiliates is available on the eCat system.
+
+  utter_headcovering:
+  - text: Head coverings worn daily for religious beliefs or medical reasons may be worn as long as the item does not obscure facial features.
+
+  utter_galaxy1:
+  - text: Galaxy Orion is a service to support admissions, enrollment, registration, orientation, financial aid, student accounts, and collections, advising, and career services.
+
+  utter_galaxy2:
+  - text: Students, Faculty, Staff can use Galaxy
+
+  utter_galaxy3:
+  - text: "You can access the Galaxy Orion at: https://www.utdallas.edu/galaxy/"
+
+  utter_galaxy4:
+  - text: There is no cost for this service at this time.
+
+  utter_duo:
+  - text: Duo is the university two-factor authentication method designed to add a second layer of security to your NetID account. Verifying your identity using a second factor, such as your phone or a security key, prevents anyone but you from logging in, even if they know your password.
+
+  utter_y_courseinfo:
+  - text: "You can search for courses and course information about a specific course through the UT Dallas guided coursebook, you can find it here at https://coursebook.utdallas.edu/."
+  
+  utter_y_degreeinfo:
+  - text: "UT Dallas offers a wide range of undergraduate, graduate, and doctoral degree programs across various disciplines, providing students with rigorous academic training, research opportunities, and professional development to prepare them for success in their chosen fields."
+  
+  utter_y_orientation:
+  - text: "UT Dallas freshman orientation provides new students with essential information, resources, and support to navigate academic and social aspects of university life, fostering a successful transition to college. For more information, you can visit https://www.fye.utdallas.edu/orientation/."
+  
+  utter_y_careerhelp:
+  - text: "The UT Dallas career center is dedicated to helping undergraduates, graduates students, and alumni with their career help.\nFrom personalized career advising to career fairs and everything in between, the UCC exists to help you get started in your career.\nFor more information, you can visit https://www.career.utdallas.edu/. You can also visit https://www.career.utdallas.edu/career-resource-library/ for career resources."
+  
+  utter_y_healthandwellness:
+  - text: "The UT Dallas student wellness center is dedicated to the health and well-being of all UT Dallas students. It offers a variety of sources related to various public health concerns. For more information, you can visit https://www.studentwellness.utdallas.edu/."
+  
+  utter_y_sociallife:
+  - text: "The UT Dallas social life is very introverted and offers very few options for students. If you want to learn more about the UT Dallas social life, please visit https://www.utdallas.edu/campus-life/."
+  
+  utter_y_campusnavigation:
+  - text: "You can view a map of UT Dallas and visit the university through an interative tour offered in person and virtually. If you want to learn more about how to navigate UTD or schedule your next tour, please visit, https://www.utdallas.edu/visitors/tour-utd/." 
+  
+  utter_y_campusresources:
+  - text: "The UT Dallas campus resources contains information about tutoring, transcripts, academic calendar, courses, libraries, advising and testing center. For more helpful information, please visit https://www.utdallas.edu/academics/academic-resources/." 
+  
+  utter_y_csmentoringcenter:
+  - text: "The UT Dallas Computer Science mentoring center offers tutoring and guidance for anyone taking the core basic computer science courses at UT Dallas. Tuoring is offered for CS 1436, CS 1337, CS 2305, CS 2336, CS 2337, CS 2340, CS 3305, and SE 3306. For more imformation, you can visit, https://www.csmc.utdallas.edu/."
+  
+  utter_y_hackathonguidance:
+  - text: "Hack UTD is UTD's largest hackathon organization that provides and organizes one of the largest hackathons in North America for students all around the world. UTD has many other CS organizations such as ACM who also sponsor and participate in various hackathons including this one where students have the chance to build career skills, projects, network, and potential job opportunities. You can visit hack UTD's website, at https://www.hackutd.co/. Or you can also check ACM's website at https://www.acmutd.co/." 
+  
+  utter_y_gradrequirements:
+  - text: "The University reserves the right to graduate any student who has satisfactorily met all requirements for graduation. To view these requirements, you must read your degree plan and meet with academic advisor. You can also check out the course catalog and click on your school of study which has your major in it to view the degree requirements. Here is the 2023 undergraduate catalog for example, https://www.catalog.utdallas.edu/2023/undergraduate/home/."
+  
+  utter_y_academicadvising:
+  - text: "The academic advising at UT Dallas offers students the opportunity to connect with academic advisors that can help students stay on track for their degree plan and to graduate. It is mandatory for every freshman and transfer student to meet with their academic advisor at least once before they sign up for classes. You can find more information on the website at https://www.registrar.utdallas.edu/registration/academic-advising/."
+  
+  utter_y_scholarship:
+  - text: "Scholarships are considered merit-based aid that do not have to be repaid. UT Dallas offers students many scholarships such as academic excellence scholarship to eligible students based on academic achievements. For more information, you can visit https://www.finaid.utdallas.edu/scholarships/."
+  
+  utter_y_housing:
+  - text: "UT Dallas offers a variety of housing options for students from the residence halls to the university village apartments, there are plenty of housing options for students on campus. Only first-year students can apply to stay in residence halls. Non-first year students can apply to stay at Canyon Creek Heights apartments or University Village apartments on campus. There is also off-campus housing available at Northside. For more information, please visit https://www.housing.utdallas.edu/."
+  
+  utter_y_accessibility:
+  - text: "Students and employees with disabilities can access accessibility information and accommodations such as extended exam time, etc... For more information, please visit https://www.accessability.utdallas.edu/."
+  
+  utter_y_timemanagement:
+  - text: "The UT Dallas student counseling center offers students an important resource for planning their time. It is important for student to prioritize important tasks in hand before doing nonimportant tasks. For more information, please visit https://www.counseling.utdallas.edu/resources/time-management/."
+ 
+  utter_y_dininginfo:
+  - text: "UT Dallas offers a variety of meal services for students on and off campus. There are various meal plans available to students such as comet-19, comet-14, comet-10. It is important to plan ahead for meals as dining services come on a first come first serve basis. For more information, please visit https://www.services.utdallas.edu/dining/. If you have any specific questions, please check out https://www.dineoncampus.com/utdallasdining/faqs."
+  
+  utter_y_gym:
+  - text: "UT Dallas offers 2 gyms for students on campus. There is the Recreation Center West which is near the freshman dorms and the Activity Center which is near the center of campus. Both Gym memberships are free for students who have paid their tuition and fees for the semester. For more information, please check out https://www.urec.utdallas.edu/."
+  
+  utter_y_athletics:
+  - text: "The UT Dallas Comets compete in a variety of NCAA approved Division III sports such as Basketball, Soccer, Volleyball, Cross Country/Track and Field, Golf, Tennis, and Baseball. Starting July 1st, 2025, UT Dallas will join the Lone Star Conference as part of the NCAA Division II. You can find more information at https://www.utdcomets.com/."
+  
+  utter_y_bookstore:
+  - text: "The UT Dallas bookstore is a place where students, faculty, and alumni can purchase any school supplies such as class textbooks, notebooks, pencils, pens, and school spirit apparel. Customers can also purchase graduation regalia which is required for graduation ceremony at UT Dallas. To view the bookstore website, please visit https://www.bkstr.com/texasatdallasstore/home."
+
+  utter_whoosh:
+  - text: The Whoosh is the UT Dallas signature sign, an understood language between Comets. The salute is named the Whoosh because it is the sound a comet would make if there was sound in space. The gesture honors the campus mascot, Temoc, whose name is comet spelled backward.
+
+  utter_address: 
+  - text: UT Dallas is easily accessible via major expressways and public transportation. The University's address is 800 W.Campbell Road Richardson, Texas 75080.
+
+  utter_aboututd:
+  - text: UT Dallas is a top public university located in one of the nation’s fastest-growing metropolitan regions. Our seven schools offer more than 140 undergraduate and graduate programs, plus professional certificates and fast-track programs. We are the 3rd Best Public University in Texas (U.S. News & World Report), 3,900 UTD Students earn internships yearly (ORC), and 66% of Graduating seniors have no student debt compared to 32% in the nation.
+
+  utter_alumni:
+  - text: UT Dallas alumni make their mark wherever they go — creating, innovating and leading the way across the globe. Whoosh! Explore ways to get involved with the University as a corporate partner and benefactor. You can learn more at https://www.utdallas.edu/alumni/.
+
+  utter_counseling:
+  - text: The UT Dallas Student Counseling Center (SCC) is dedicated to providing high-quality student mental health services. Check out https://counseling.utdallas.edu/ for more info.
+
+  utter_genai:
+  - text: UT Dallas supports the responsible use of approved Gen AI tools to automate or augment basic tasks, reinvent workflow, enhance worker performance, and accelerate research. You can learn more at https://oit.utdallas.edu/about/gen-ai/.
+
+  utter_netid:
+  - text: The NetID Portal provides a web based user interface to activate your network account, manage your password, acknowledge required policies, and request enrollment to NetIDplus. Visit https://oit.utdallas.edu/netid/self-service/ for services to help you with your account.
+
+  utter_mobileapp:
+  - text: UT Dallas offers a mobile app. The app is completely customizable to meet your specific needs. Download it on the App Store or get it on Google Play here https://www.utdallas.edu/utd-mobile-application/.
+  
+  utter_y_ecsadvising: 
+  - text: "The UT Dallas ECS advising is a place where ECS students can get help from their designated academic advisors on signing up for classes, dropping classes, graduation plan, etc... You can find more imformation here at (https://engineering.utdallas.edu/academics/undergraduate-majors/undergrad-advising/ecs-advisors/)."
+  
+  utter_y_ifriendprogram:
+  - text: "iFriend is a cultural exchange program where you can learn about how to interact with someone from another culture, make new friends, and be ready to work with global teams after graduation. You can find out more at (https://icp.utdallas.edu/engagement/ifriend/)."
+  
+  utter_y_internationalweek:
+  - text: "iWeek is a week of intercultural-focused programs and events that showcase international culture through food, music, performance art and more. The annual week-long event is a collaboration between ICP, student cultural organizations and departments across campus. You can find out more at (https://iweek.utdallas.edu/)."
+  
+  utter_y_internationalstudentorientation:
+  - text: "International Student Orientation is mandatory for all F and J graduate international students and exchange students and is optional as a resource for freshman and transfer students. You can find out more about it here at (https://icp.utdallas.edu/students/international-student-orientation/)."
+  
+  utter_y_internationaladmissions:
+  - text: "International students are valued members of the UT Dallas community and are eligible to apply for undergraduate admission. Those interested in graduate studies should contact the graduate academic department of interest directly. For immigration advising and benefits processing, please refer to the International Student Services Office. You can find out more here at (https://enroll.utdallas.edu/apply/international-applicants/)."
+  
+  utter_y_utddirectory:
+  - text: "The UTD directory is a place where anyone can Search for UT Dallas students, faculty and staff by entering a name, email address or campus phone number in the search box. You can find it here at (https://www.utdallas.edu/directory/)."
+  
+  utter_y_utdhumanresources:
+  - text: "The UTD Office of Human Resources mission is to enable the success of its employees. What we do should help others be their best at what they do best. You can find their website at (https://hr.utdallas.edu/)."
+  
+  utter_y_oitservicedesk: 
+  - text: "The office of service desk at UTD is a place where UTD students and facult can get solutions to all their tech problems ranging from troubleshooting to getting hacked. You can find it here at (https://oit.utdallas.edu/servicedesk/)."
+  
+  utter_y_techknowledgybar: 
+  - text: "The TechKnowledgy Bar is a space located in the Student Union for UT Dallas students, faculty, and staff to learn about technology at UT Dallas, including getting a first-hand look at new projects and initiatives from OIT and our partners. You can find it located on the first floor at the Student Union next to the plinth."
+  
+  utter_y_campuslife: 
+  - text: "The Campus Life at UT Dallas is known to be very introverted and reserved. If you really want to make friend, you need to put in more effort. You can find more information at (https://www.utdallas.edu/campus-life/)."
+  
+  utter_y_greeklife: 
+  - text: "The Fraternity and Sorority Life vision is to become a large, developmental and inclusive fraternity and sorority community. Large not just in the sense that there are numerous fraternity and sorority members but rather that those members have a significant impact on the UT Dallas community. You can find more information at (https://gogreek.utdallas.edu/)."
+  
+  utter_y_studentspaces: 
+  - text: "UT Dallas has spaces for you to study, relax, compete and eat. Places include Chess Plaza, Student Union, Gaming Wall, and Texas Instruments Plaza."
+  
+  utter_y_studentunion:
+  - text: "The Student Union is the hub of campus activity. Whether attending an event, grabbing lunch, studying or gaming, the Student Union is where Comets come together. You can more information at (https://union.utdallas.edu/)."
+  
+  utter_y_workatutdallas:
+  - text: "UT Dallas has plenty of on campus jobs available. For more information please visit: [jobs.utdallas.edu/](https://jobs.utdallas.edu/)."
+  
+  utter_y_studentmedia:
+  - text: "The UT Dallas runs a student media that delivers the latest news to the UTD community. Organizations include RadioUTD, The Mercury, UTD TV, and AMP. You can find out more at: (https://studentmedia.utdallas.edu/)."
+  
+  utter_y_studentachievements: 
+  - text: "UTD student achievements recaps student successes such as successful graduation rates, examination success, top employment opportunities, and medical school admissions/law school admissions. To find out more, you can go to: (https://oisds.utdallas.edu/student-achievements/)."
+  
+  utter_y_utdtalk:
+  - text: "UTD Talk is an emergency crisis for UTD students. If you are in a mental health crisis at UTD, please call (972)-883-8255."
+  
+  utter_y_studentcounselingcenter:
+  - text: "The UT Dallas Student Counseling Center (SCC) is dedicated to providing high-quality student mental health services. For more information, please visit (https://counseling.utdallas.edu/)."
+  
+  utter_y_busservice:
+  - text: "The Comet Cruiser is a shuttle bus serving UT Dallas and the surrounding community. You do not need any sort of pass or identification to use this bus, but other bus and train routes do require a DART Transit Pass which you can obtain for free from the UTD Parking office. For more information please visit (https://services.utdallas.edu/transit/cruiser/)."
+  
+  utter_y_campushealthpromotion:
+  - text: "The health and safety of all Comets is our priority. We encourage all faculty, staff, and students to stay home if you have symptoms of contagious illness, and to seek medical attention if your symptoms are severe. For more information, please visit (https://www.utdallas.edu/campus-health/)."
+  
+  utter_y_newdimensionsutd:
+  - text: "Help build a brighter future for UT Dallas today by donating. For more information, please visit (https://newdimensions.utdallas.edu/)."
+  
+  utter_y_utdoit:
+  - text: "The Office of Information Technology offers support via phone, chat, Atlas ticket, and in person at the TechKnowledgy Bar and our computer labs. Check out our knowledge base for answers. For more information please visit (https://oit.utdallas.edu/)."
+  
+  utter_y_openaccesslabs:
+  - text: "UTD has many open access computer labs available to all its students and faculty for hours and important information, please visit: (https://engineering.utdallas.edu/about/facilities/open-access-labs/)."
+  
+  utter_y_utdesign:
+  - text: "UTDesign is a capstone project program at UT Dallas that creates project opportunities for students, companies, and faculty to innovate and find solutions to projects. For more information, please visit: (https://utdesign.utdallas.edu/)."
+  
+  utter_y_utdbighowdy:
+  - text: "UTD Big Howdy is a travel organization for UTD International students who need assistance moving in and learning more about UT Dallas. It's mission is to create a home away from home for international students. For more information, please visit (https://utdbighowdy.com/)."
+  
+  utter_y_utdimmigrationadvising:
+  - text: "The International Students and Scholars Office (ISSO) provides immigration advising to help you manage your immigration status. We offer one-on-one appointments, group advising, and live chat sessions with advisors. You can also send a message to an advisor through iComet. For more information, please visit (https://isso.utdallas.edu/advising/)."
+  
+  utter_y_utdtoday:
+  - text: "UTD Today is a magazine that has a mission to 'Bringing Comet Brilliance to Light', for more information please visit: (https://www.utdallas.edu/about-us/utd-today/)."
+  
+  utter_y_youarewelcomehere:
+  - text: "UT Dallas students represent a spectrum of backgrounds, cultures and identities. While their skills, interests and goals vary, Comets respect their peers and grow as they learn from each other."
+  
+  utter_y_myutd:
+  - text: "Every Comet has a story. Experience a day in the life of a Comet through My UTD. For more information, please visit: (https://myutd.utdallas.edu/)."
+  
+  utter_y_utdgrades:
+  - text: "UTD Grades is a helpful way to visualize how students did in each class at UTD by taking the grade distributions of a specific class. Users can enter a course in the search bar to find a course grade. For more information, please visit: (https://utdgrades.com/)."
+  
+  utter_y_cometgivingdays:
+  - text: "Comet giving days is an ultimate donation challenge for the UTD community where top donors can earn prizes for contributing the most money to the UT Dallas community. This is an event held annually at UT Dallas typically in the spring semester. For more information, please visit: (https://givingday.utdallas.edu/)."
+  
+  utter_y_testingcenter:
+  - text: "The Testing Center offers a 300-seat computer lab, providing UT Dallas students access to a comfortable and secure testing environment for online, paper, and hybrid exams. Students and faculty can register for exams here at: (https://ets.utdallas.edu/testing-center)."
+  
+  utter_y_academicresources:
+  - text: "UTD Academic Resources contains information about tutoring, transcripts, academic calendar, courses, libraries, advising and testing center. For more information, please visit (https://www.utdallas.edu/academics/academic-resources/)."
+  
+  utter_y_teachingresources:
+  - text: "UTD Teaching Resources contains helpful teacher resources that can be used by UTD faculty to better assist students in learning and teaching the material. For more information, please visit (https://ctl.utdallas.edu/teaching/resources/)."
+  
+  utter_name:
+  - text: My name is CometBot. I will do my best to help you gain knowledge about UTD :)
+
+  utter_howareyou:
+  - text: I am doing great! What would you like to know about UTD?
+
+  utter_standfor:
+  - text: UTD is short for The University of Texas at Dallas. Also known as UT Dallas.
+
+  utter_joke:
+  - text: Do you want to hear a construction joke? Sorry, I’m still working on it.
+
+  utter_sing:
+  - text: C-O-M-E-T-S! GO! Green, Orange, White! Comets GO! Strong of will, we fight for right! Let’s all show our comet might! 
+
+  utter_oldest:
+  - text: The oldest student to attend UTD was 86!
+
+  utter_youngest:
+  - text: The youngest student to attend UTD was 15!
+
+  utter_socialmedia:
+  - text: A growing number of UT Dallas offices and student groups use social media tools for announcements and events. Check them out at https://www.utdallas.edu/about-us/utd-today/social/.
+
+  utter_utdcost:
+  - text: The cost of college varies from student to student. The cost of attending UT Dallas varies based on students’ lifestyles, majors, academic colleges and academic progress. Check out https://enroll.utdallas.edu/affordability/.
+
+  utter_affirm:
+  - text: Happy to help!
+
+  utter_deny:
+  - text: I'm sorry 
+
+  utter_mood_great:
+  - text: I'm happy to hear that!
+  - text: Great, carry on!
+
+  utter_mood_unhappy:
+  - text: I am sorry to hear that, hope it gets better!
+
+  utter_bot_challenge:
+  - text: I am a UTD bot, at your service!
+
+  utter_fail:
+  - text: You may choose to retake the course at UTD or may repeat the course at another accredited college or university. A student may not transfer an equivalent course if that course was taken at UT Dallas with a passing grade (D’s included). Upon completion of the course with a grade of at least C (2.0 on a 4.0 scale), the course may be transferred to UT Dallas where it will meet the content requirements of the course failed in residence and contribute hours toward graduation. However, the grade of F earned at UT Dallas will remain a part of the student’s academic record and will be computed as a part of the cumulative grade point average.
+  
+  utter_dgrade:
+  - text: If you made a D in a class, you may choose to retake the class to raise your GPA but it is not required. You must have a 2.0 GPA overall and a 2.0 GPA in your major core to satisfy GPA graduation requirements. Be aware that some courses require a grade of C- or better in a prerequisite course (many math courses, for example). See the course descriptions in the catalog for specific information.
+
+  utter_fasttrack:
+  - text: Fast-Track programs are designed to permit qualified seniors enrolled at UT Dallas to begin work on their MS or the Professional MBA (Flex or Online) degree before graduation. In addition, students may choose to complete graduate coursework that applies only to their undergraduate degree or their future graduate degree. To be approved for any of these options, students must meet the requirements outlined below as well as abide by the complete policy outlined in https://catalog.utdallas.edu/current/undergraduate/policies/graduate-courses
+
+  utter_parkingcitation:
+  - text: You can pay for your parking ticket, search citations, purchase permits, or update your account in the parking portal here https://utdallas.t2hosted.com/Account/Portal/#citationSearchBox
+
+  utter_dance:
+  - text: Power Dancers are the official dance team of UT Dallas. Members perform at varsity athletic events, make special appearances on campus throughout the year, and are a source of school spirit. Learn more here https://spirit.utdallas.edu/power-dancers/
+
+  utter_employeebenefits:
+  - text: The UT System Office of Employee Benefits (OEB) and the UT Dallas Human Resources Benefits team work together to offer eligible UT Dallas employees, retirees and their dependents high-quality, competitive benefits provided here https://hr.utdallas.edu/employees/benefits/
+
+  utter_employeedev:
+  - text: UT Dallas’ Talent Development team provides resources and training for UTD employees throughout the year. Check them out at https://hr.utdallas.edu/employees/talent-development-and-training/
+
+  utter_erikjonsson:
+  - text: The Jonsson School is one of the fastest-growing and most vigorous engineering and computer science schools in the United States. Since 2008, the Jonsson School has doubled in size with the creation of four new departments and nine new degree programs. Visit https://engineering.utdallas.edu/about/at-a-glance/ for more information 
+
+  utter_finalexam:
+  - text:  When a final exam is given in a course, it must be given at the time scheduled by the Office of the Registrar during the final examination period listed on the Academic Calendar. To find your final exam assignment --> Login to Orion --> Under UTD Student Center, select Manage my Classes --> In the “View My Classes” for the term, select “Exam Schedule” under your class listings.
+
+  utter_immunizations:
+  - text: The following immunizations and tests are offered at the SHC --> Allergy injections, Influenza (flu) vaccine, Human Papillomavirus Vaccine (HPV), Hepatitis B, Meningitis vaccine (Menactra); Vaccine Requirement Forms, MMR (Measles, Mumps and Rubella), Tuberculosis (TB) skin test, TB Blood Test, Tetanus Tdap and TDs, Varicella (chicken pox). Visit https://studenthealthcenter.utdallas.edu/resources/immunizations-and-tests/ for more info.
+
+  utter_helpdesk:
+  - text: The Office of Information Technology (OIT) provides innovative, collaborative, and valuable IT services, in a timely, accessible, and dependable manner, that support the University in achieving its strategic goals. Visit https://oit.utdallas.edu/servicedesk/ to seek help.
+
+  utter_askbot:
+  - text: Try asking me questions about UTD. I will try my best to answer them!
+
+  utter_generaladmission:
+  - text: Join a rising public research university with top programs in STEM, management, liberal arts and social sciences. Explore the application process, admission resources and more at https://www.utdallas.edu/admissions/
+
+  utter_academic_dishonesty:
+  - text: Academic dishonesty includes but is not limited to plagiarism, collusion, cheating, fabrication, facilitating academic dishonesty, failure to contribute to a collaborative project, and sabotage. Learn more here https://conduct.utdallas.edu/dishonesty/.
+
+  utter_newsletter:
+  - text: Check out UT Dallas's newsletters at https://www.utdallas.edu/about-us/utd-today/newsletters/. 
+
+  utter_ezpay:
+  - text: EZPAY is a secure website on which students can manage their tuition finances. Learn more here https://bursar.utdallas.edu/payments-refunds/tuition-payments/#:~:text=Make%20a%20Payment,can%20manage%20their%20tuition%20finances.
+
+  utter_error:
+  - text: Based on the data that I was trained on May 1, 2024, this information should be correct but please double check with the UTD website https://www.utdallas.edu/.
+
+actions:
+  - utter_admission3
+  - utter_admission4
+  - utter_temoc
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+  

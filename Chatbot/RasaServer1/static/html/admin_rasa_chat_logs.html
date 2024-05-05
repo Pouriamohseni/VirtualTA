@@ -1,0 +1,254 @@
+<head>
+    <link rel="stylesheet" href="/styles">
+    
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+<h3>Menu</h3>
+<a href="/static/html/admin_rasa_config.html">Rasa Config</a><br>
+<a href="/static/html/admin_rasa_chat_logs.html">Rasa Chat Logs</a><br>
+<a href="/static/html/admin_rasa_event_logs.html">Rasa Event Logs</a><br>
+<a href="/static/html/admin_rasa_chat_testing.html">Rasa Chat Testing</a><br>
+<a href="/static/html/admin_rasa_session_management.html">Rasa Session Management</a><br>
+
+<h3>RasaServer1 Chat Logs</h3>
+<form id="queryForm">
+    Start Time: <input type="datetime-local" id="startTime"><br>
+    End Time: <input type="datetime-local" id="endTime"><br>
+    User ID: <input type="text" id="userID" placeholder="Leave blank for everything..."><br>
+    Thread ID: <input type="text" id="threadID" placeholder="Leave blank for everything..."><br>
+    Message ID: <input type="text" id="messageID" placeholder="Leave blank for everything..."><br>
+    Side: <select id="side">
+        <option value="any">Any</option>
+        <option value="user">User</option>
+        <option value="bot">Bot</option>
+    </select><br>
+    Flagged: <select id="flagged">
+        <option value="any">Any</option>
+        <option value="true">True</option>
+        <option value="false">False</option>
+    </select><br>
+    <button type="button" onclick="GetChatLogs()">Refresh</button>
+</form>
+
+<br><br>
+<h3>User and Bot Messages Over Time</h3>
+<canvas id="userBotChart" width="400" height="200"></canvas>
+
+<br><br>
+
+<!-- Chat Logs Table -->
+<table class="contentTable" id="chatLogsTable">
+    <thead>
+        <tr>
+            <th>Timestamp</th>
+            <th>User ID</th>
+            <th>Thread ID</th>
+            <th>Message ID</th>
+            <th>Side</th>
+            <th>Message</th>
+            <th>Flagged</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Log entries will be inserted here -->
+    </tbody>
+</table>
+
+<script>
+    window.onload = async function() {
+        await GetChatLogs();
+    }
+
+    async function GetChatLogs() {
+        try {
+            let startTime = document.getElementById('startTime').value;
+            let endTime = document.getElementById('endTime').value;
+            const userID = document.getElementById('userID').value;
+            const threadID = document.getElementById('threadID').value;
+            const messageID = document.getElementById('messageID').value;
+            const side = document.getElementById('side').value;
+            const flagged = document.getElementById('flagged').value;
+
+            // Convert to the expected datetime format
+            startTime = startTime ? startTime.replace("T", " ") + ":00" : "";
+            endTime = endTime ? endTime.replace("T", " ") + ":00" : "";
+
+            let query = `/admin/rasaserver1/admin/chat_log?`
+            if (startTime) query += `start_time=${encodeURIComponent(startTime)}&`;
+            if (endTime) query += `end_time=${encodeURIComponent(endTime)}&`;
+            if (userID) query += `user_id=${encodeURIComponent(userID)}&`;
+            if (threadID) query += `thread_id=${encodeURIComponent(threadID)}&`;
+            if (messageID) query += `message_id=${encodeURIComponent(messageID)}&`;
+            if (side == "user" || side == "bot") query += `side=${encodeURIComponent(side)}&`;
+            if (flagged == "true" || flagged == "false") query += `flagged=${encodeURIComponent(flagged)}&`;
+
+            const response = await fetch(query);
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            populateTable(data);
+            if (data.length) {
+                await createUserBotGraph(data);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    function populateTable(data) {
+        const tableBody = document.getElementById('chatLogsTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = ''; // Clear existing table rows
+
+        data.forEach(chat => {
+            const row = tableBody.insertRow();
+            let bgColor = chat.side === 'bot' ? 'lightgray' : 'white';
+
+            const cells = [
+                row.insertCell(0),
+                row.insertCell(1),
+                row.insertCell(2),
+                row.insertCell(3),
+                row.insertCell(4),
+                row.insertCell(5),
+                row.insertCell(6)
+            ];
+
+            cells[0].innerHTML = chat.timestamp;
+            cells[1].innerHTML = chat.user_id;
+            cells[2].innerHTML = chat.thread_id;
+            cells[3].innerHTML = chat.message_id;
+            cells[4].innerHTML = chat.side;
+            cells[5].innerHTML = chat.message_content;
+
+            // Add a button to flag or unflag based on current status
+            let flagStatusHtml = chat.flagged ? `<span style="color: red; font-weight: bold;">TRUE</span>` :
+                                           `<span style="color: green; font-weight: bold;">FALSE</span>`;
+
+            if (chat.flagged) {
+                cells[6].innerHTML = `${flagStatusHtml} <button onclick="unflagMessage('${chat.message_id}')">Unflag Message</button>`;
+            } else {
+                cells[6].innerHTML = `${flagStatusHtml} <button onclick="flagMessage('${chat.message_id}')">Flag Message</button>`;
+            }
+
+            // Set background color for all cells in the row
+            cells.forEach(cell => cell.style.backgroundColor = bgColor);
+        });
+    }
+
+    async function flagMessage(messageId) {
+        await modifyFlagStatus(messageId, true);
+    }
+
+    async function unflagMessage(messageId) {
+        await modifyFlagStatus(messageId, false);
+    }
+
+    async function modifyFlagStatus(messageId, flag) {
+        const action = flag ? 'flag_conversation' : 'unflag_conversation';
+        const response = await fetch(`/admin/rasaserver1/admin/${action}/${messageId}`, {
+            method: 'PUT'
+        });
+        if (response.ok) {
+            await GetChatLogs(); // Refresh table to show updated flag status
+        } else {
+            console.error('Failed to modify flag status');
+        }
+    }
+
+    async function countMessagesPerMinute(records) {
+        const counts = {};
+
+        records.forEach(record => {
+            const timestamp = new Date(record.timestamp);
+            timestamp.setSeconds(0, 0);  // Reset seconds and milliseconds
+            const minuteKey = timestamp.toISOString();  // Create a unique key for each minute
+
+            if (!counts[minuteKey]) {
+                counts[minuteKey] = { USER: 0, BOT: 0 };
+            }
+
+            if (record.side === 'user' || record.side === 'bot') {
+                // Increment count based on whether the side is 'user' or 'bot'
+                counts[minuteKey][record.side.toUpperCase()]++;
+            }
+        });
+
+        // Convert the counts object to an array suitable for charting
+        const processedData = Object.entries(counts).map(([minute, count]) => ({
+            minute,
+            USER: count.USER,
+            BOT: count.BOT
+        }));
+
+        console.log('processedData: ');
+        console.log(processedData);
+        return processedData;
+    }
+
+    let userBotChart = null;
+
+async function createUserBotGraph(records) {
+    const countedData = await countMessagesPerMinute(records);
+
+    // Sort the data by the minute in ascending order
+    countedData.sort((a, b) => new Date(a.minute) - new Date(b.minute));
+
+    const ctx = document.getElementById('userBotChart').getContext('2d');
+
+    // Destroy the existing chart if it exists
+    if (userBotChart) {
+        userBotChart.destroy();
+    }
+
+    // Create a new chart instance
+    userBotChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: countedData.map(item => item.minute),
+        datasets: [{
+            label: 'User Messages',
+            data: countedData.map(item => item.USER),
+            borderColor: 'blue',
+            borderWidth: 1
+        },
+        {
+            label: 'Bot Messages',
+            data: countedData.map(item => item.BOT),
+            borderColor: 'green',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,  // Maintain the aspect ratio
+        aspectRatio: 2,  // Optional, customize as needed
+        scales: {
+            y: {
+                beginAtZero: true
+            },
+            x: {
+                type: 'time',
+                time: {
+                    unit: 'minute',
+                    displayFormats: {
+                        minute: 'HH:mm'
+                    },
+                    tooltipFormat: 'HH:mm'
+                },
+                title: {
+                    display: true,
+                    text: 'Time'
+                }
+            }
+        }
+    }
+});
+
+}
+
+
+
+
+</script>

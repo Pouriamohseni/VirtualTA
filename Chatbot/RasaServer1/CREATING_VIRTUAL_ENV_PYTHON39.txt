@@ -1,0 +1,5 @@
+"C:\Users\kev\AppData\Local\Programs\Python\Python39\python.exe" -m venv env
+env\Sripts\activate
+
+pip install rasa
+

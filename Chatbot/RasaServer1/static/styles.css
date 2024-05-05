@@ -1,0 +1,426 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: lightblue; /* Softer background color */
+  color: #4d4d4d; /* Softer text color */
+}
+
+/* Main navigation bar */
+.navbar {
+  background-color: #2c3e50; /* Darker color for the navbar */
+  color: #ecf0f1;
+}
+
+.navbar a {
+  color: #ecf0f1; /* Light text for contrast */
+}
+
+/* Content boxes */
+.content-box {
+  background-color: #f9f9f9; /* Light color for content backgrounds */
+  border: 1px solid #dfe6e9; /* Border to define edges */
+  padding: 20px;
+  border-radius: 4px; /* Rounded corners for modern look */
+  margin-bottom: 20px; /* Spacing between content boxes */
+}
+
+/* Buttons */
+button {
+  background-color: #7f8c8d; /* Neutral button color */
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+button:hover {
+  background-color: #95a5a6; /* Lighter color on hover */
+}
+
+button:disabled {
+  background-color: #bdc3c7; /* Grayed out color for disabled buttons */
+}
+
+/* Buttons */
+button, input[type="button"] {
+  background-color: #7f8c8d; /* Neutral button color */
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+button:hover, input[type="button"]:hover {
+  background-color: #95a5a6; /* Lighter color on hover */
+}
+
+button:disabled, input[type="button"]:disabled {
+  background-color: #bdc3c7; /* Grayed out color for disabled buttons */
+  cursor: not-allowed; /* Change cursor for disabled buttons */
+}
+
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #2c3e50; /* Darker color for headings */
+}
+
+/* Links */
+a, a:visited {
+  color: #3498db; /* Subtle link color */
+}
+
+a:hover {
+  color: #2980b9; /* Darker shade on hover */
+}
+
+/* Side Navigation */
+.side-nav {
+  background-color: #34495e; /* Even darker shade for side navigation */
+  color: #ecf0f1;
+  padding: 20px;
+}
+
+.side-nav a {
+  color: #bdc3c7; /* Gray text for the side-nav links */
+  line-height: 2.5; /* Increased line spacing */
+}
+
+/* Navigation Bar */
+.topnav {
+  display: flex;
+  justify-content: space-around; /* Center items using Flexbox */
+  align-items: center;
+  background-color: #333;
+  padding: 10px 0; /* Uniform padding */
+}
+
+.topnav h4 {
+  color: #f2f2f2; /* Light text for contrast */
+}
+
+.topnav a {
+  color: #f2f2f2;
+  padding: 10px 15px; /* Adjusted padding */
+  transition: background-color 0.3s; /* Transition for hover effect */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.topnav a:hover {
+  background-color: #a5a5a5; /* Darker color on hover */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.topnav a.active {
+  background-color: #40A5FF;
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Tables and Lists */
+table, th, td {
+  border-collapse: collapse;
+  border: 1px solid #ddd; /* Lighter border for tables */
+  padding: 8px;
+}
+
+th {
+  background-color: #e2e2e2;
+  color: #333; /* Ensure text contrast */
+}
+
+table {
+  width: 100%; /* Full width tables */
+  background-color: white; /* White background for clarity */
+}
+
+td {
+  background-color: #eeeeee; /* White background for table cells */
+  color: #333; /* Dark text for readability */
+}
+
+/* Coloring for Yes and No */
+.yes {
+  color: green; /* Green color for affirmative */
+}
+
+.no {
+  color: red; /* Red color for negative */
+}
+
+ul, ol {
+  padding-left: 20px; /* Proper indentation for lists */
+}
+
+/* Special Elements */
+.zendesk-new, .zendesk-open, .zendesk-pending, .zendesk-onhold, .zendesk-solved, .zendesk-closed {
+  font-weight: bold; /* Make status labels bold */
+}
+
+.zendesk-new { color: orange; }
+.zendesk-open { color: red; }
+.zendesk-pending { color: blue; }
+.zendesk-onhold { color: #454545; }
+.zendesk-solved { color: gray; }
+.zendesk-closed { color: silver; }
+
+/* Containers and Layout */
+.custom-pbx-menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0; /* Uniform padding */
+}
+
+.custom-pbx-menu {
+  display: flex;
+  gap: 10px;
+}
+
+.ephi_disclaimer {
+  background-color: #f1f1f1;
+  padding: 20px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 20px 0; /* Add margin for spacing */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .topnav {
+    flex-direction: column; /* Stack nav items on smaller screens */
+  }
+}
+
+.custom-pbx-welcome-message p {
+  float: right;
+  color: #f1f1f1;
+}
+/* Select Dropdowns */
+select {
+  background-color: #7f8c8d; /* Neutral button color for dropdown */
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transition for hover effect */
+  -webkit-appearance: none; /* Removes default styling on WebKit browsers */
+  -moz-appearance: none;    /* Removes default styling on Firefox browsers */
+  appearance: none;         /* Removes default styling */
+}
+
+/* To change the dropdown arrow color, a background image is used */
+select {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 12px;
+}
+
+select:hover {
+  background-color: #95a5a6; /* Lighter color on hover for dropdown */
+}
+
+select:disabled {
+  background-color: #bdc3c7; /* Grayed out color for disabled dropdowns */
+  cursor: not-allowed;
+}
+
+/* Style focus for select elements */
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #95a5a6; /* Focus ring around the select box */
+}
+
+/* It's a good idea to style the option elements as well */
+option {
+  background-color: #7f8c8d; /* Same as select background */
+  color: #ffffff;
+}
+
+/* In case of using a wrapper div around select for custom arrow styling */
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: auto; /* Adjust as per your layout */
+}
+
+.select-wrapper:after {
+  content: '▼';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  pointer-events: none; /* Ensures clicking the arrow will act like clicking the select */
+}
+
+/* Hides the default arrow icon in IE */
+select::-ms-expand {
+  display: none;
+}
+
+a {
+  color: #3498db; /* Unique color for links */
+  font-weight: bold; /* Makes links bold */
+  text-decoration: none; /* Removes underline */
+  background-color: transparent; /* No background by default */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+  padding: 2px 5px; /* Slight padding around links */
+  border-radius: 2px; /* Rounded corners for the background */
+}
+
+a:hover, a:focus {
+  text-decoration: underline; /* Underline on hover for clarity */
+  background-color: #e0e0e0; /* Subtle background color on hover */
+  color: #2980b9; /* Darker shade on hover */
+}
+
+/* For a tags that are buttons or call to action, you might want to differentiate them even more */
+a.button-link {
+  color: #ffffff;
+  background-color: #7f8c8d; /* Matching the button color */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px; /* Matching the button padding */
+  text-transform: uppercase; /* Optional: makes text uppercase */
+}
+
+a.button-link:hover {
+  background-color: #95a5a6; /* Lighter color on hover for button-links */
+}
+
+/* Globally style all checkboxes */
+input[type="checkbox"] {
+  -webkit-appearance: none; /* Remove default checkbox appearance */
+  -moz-appearance: none;
+  appearance: none;
+  width: 50px; /* Width of the checkbox */
+  height: 25px; /* Height of the checkbox */
+  background: grey; /* Background when unchecked */
+  border-radius: 50px; /* Rounded edges */
+  position: relative;
+  cursor: pointer;
+  outline: none; /* Remove focus outline */
+  transition: background 0.3s; /* Smooth transition for background color */
+}
+
+/* Style when checked */
+input[type="checkbox"]:checked {
+  background: #2196F3; /* Background when checked */
+}
+
+/* Style the pseudo-element to resemble the toggle handle */
+input[type="checkbox"]::after {
+  content: '';
+  position: absolute;
+  top: 2px; /* Small gap from top */
+  left: 2px; /* Small gap from left */
+  width: 21px; /* Width of the handle */
+  height: 21px; /* Height of the handle */
+  background: white; /* Handle color */
+  border-radius: 50%; /* Circular handle */
+  transition: transform 0.3s; /* Smooth slide animation */
+}
+
+/* Move the handle when checked */
+input[type="checkbox"]:checked::after {
+  transform: translateX(25px); /* Move the handle to the right */
+}
+
+/* Optional: style the checkbox when it has focus */
+input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.5);
+}
+
+/* Style when disabled */
+input[type="checkbox"]:disabled {
+  background: lightgray; /* Light gray background when locked */
+}
+
+/* Handle color remains the same when disabled */
+input[type="checkbox"]:disabled::after {
+  background: grey; /* Handle color stays gray */
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+  background-color: #f9f9f9; /* Light background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 4px; /* Slightly rounded corners */
+  font-family: 'Open Sans', sans-serif; /* Consistent font */
+  padding: 10px; /* Comfortable padding */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding in width */
+  transition: border-color 0.3s; /* Smooth transition for border */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+  border-color: #7f8c8d; /* Highlight color on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+input[type="text"]:disabled {
+  background-color: #eee; /* Gray background when disabled */
+  cursor: not-allowed; /* Change cursor style */
+}
+
+input[type="radio"] {
+  -webkit-appearance: none; /* Remove default style */
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 20px; /* Custom size */
+  height: 20px; /* Custom size */
+  padding: 2px;
+  background-clip: content-box;
+  border: 2px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 50%;
+  margin-right: 10px; /* Space after the radio button */
+  cursor: pointer;
+  vertical-align: middle;
+  transition: border-color 0.3s; /* Smooth transition for border */
+}
+
+input[type="radio"]:checked {
+  background-color: #2196F3; /* Color when selected */
+  border-color: #7f8c8d;
+}
+
+input[type="radio"]:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 0 2px rgba(127, 140, 141, 0.5); /* Focus style */
+}
+
+/* popup toaster styling */
+.toaster {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding: 10px;
+  z-index: 1000;
+  font-size: 16px;
+  color: white;
+  transition: opacity 0.5s;
+}
+
+.success {
+  background-color: blue;
+}
+
+.error {
+  background-color: red;
+}

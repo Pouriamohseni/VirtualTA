@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "components/UserAccountnav.jsx", "components/Navbar.jsx", "components/SignInForm.jsx", "components/SignUpForm.jsx", "components/ui/button.tsx", "components/ui/form.tsx", "app/api/auth/[...nextauth]/route.ts", "app/api/user/route.ts", "lib/auth.ts", "lib/db.ts", "lib/utils.ts"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

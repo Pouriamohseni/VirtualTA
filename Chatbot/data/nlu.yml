@@ -1,0 +1,1897 @@
+version: '3.1'
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - yo
+      - whats up
+      - heyyy
+      - hola
+      - bro
+      - howdy
+      - sup
+
+  - intent: goodbye
+    examples: |
+      - good bye
+      - see you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - see you later
+
+  - intent: gpa
+    examples: |
+      - how to calculate my gpa?
+      - how is my gpa weighed?
+      - what is utd's grade scale?
+      - how can i determine my gpa?
+      - how do i calculate my gpa?
+
+  - intent: undergraduategpa
+    examples: |
+      - i am in undergraduate
+      - i am an undergrad student
+      - undergraduate
+      - undergrad
+
+  - intent: graduategpa
+    examples: |
+      - i am a graduate student
+      - i am in graduate
+      - graduate
+      - grad
+
+  - intent: enrollment_apt
+    examples: |
+      - what is an enrollment appointment
+      - enrollment appointment
+      - can i get more information on my enrollment appointment
+
+  - intent: grad_commence
+    examples: |
+      - What is the difference between commencement and graduation?
+      - commencement and graduation?
+      - difference between graduation and commencement
+
+  - intent: commencement_duration
+    examples: |
+      - How long is each Commencement Ceremony?
+      - length of commencement ceremony
+      - duration of commencement cereomony
+      - will the commencement ceremony be long?
+      - commencement long?
+
+  - intent: admission1
+    examples: |
+      - Do I need to possess a master's degree to apply for the Ph.D. program?
+      - Is a master's degree a requirement for applying to the Ph.D. program?
+      - Must I hold a master's degree to be eligible for the Ph.D. program?
+      - Are applicants for the Ph.D. program required to have completed a master's degree?
+      - Can I apply to the Ph.D. program without having a master's degree?
+      - What are the prerequisites for applying to the Ph.D. program regarding educational qualifications?
+      - Do I need to meet any specific educational criteria, such as holding a master's degree, to apply for the Ph.D. program?
+      - Are individuals without a master's degree considered for admission to the Ph.D. program?
+      - What educational background is required for admission to the Ph.D. program?
+
+  - intent: admission2
+    examples: |
+      - How do I apply to a graduate program within the Computer Science Department?
+      - What is the process for applying to a graduate program in Computer Science?
+      - Can you guide me through the application process for the Computer Science graduate program?
+      - I'm interested in applying to a graduate program in Computer Science. How should I proceed?
+      - Where can I find information on applying to the graduate program in Computer Science?
+
+  - intent: admission3
+    examples: |
+      - How do I obtain an application form?
+      - Where can I get the application form?
+      - What is the process for getting the application form?
+      - Can you guide me on how to get the application form?
+      - I need to apply, but I'm not sure how to get the application form.
+      - How can I access the application form?
+      - Do I need to visit a specific office to obtain the application form?
+      - Is there an online portal to download the application form?
+      - Where should I go to collect the application form?
+      - What are the steps to receive the application form?
+
+  - intent: admission4
+    examples: |
+      - What are the application deadlines?
+      - When is the deadline to apply?
+      - Can you tell me the application deadlines?
+      - What is the last date to submit applications?
+      - When do I need to apply by?
+      - Are there any specific deadlines for applications?
+      - How much time do I have to apply?
+
+  - intent: admission5
+    examples: |
+      - What are the minimum GRE scores for the graduate computer science programs?
+      - Can you tell me the minimum GRE scores required for the graduate computer science programs?
+      - What GRE scores do I need for the graduate computer science programs?
+      - Are there any specific GRE score requirements for the graduate computer science programs?
+      - How high do my GRE scores need to be for the graduate computer science programs?
+
+  - intent: admission6
+    examples: |
+      - What are the TOEFL score requirements?
+      - Can you tell me the TOEFL score requirements?
+      - What TOEFL scores do I need?
+      - Are there any specific TOEFL score requirements?
+      - How high do my TOEFL scores need to be?
+
+  - intent: admission7
+    examples: |
+      - What are the institution, GRE and TOEFL codes?
+      - Can you provide me with the institution, GRE, and TOEFL codes?
+      - I need the institution, GRE, and TOEFL codes. Where can I find them?
+      - Where can I locate the institution, GRE, and TOEFL codes?
+      - Do you have information on the institution, GRE, and TOEFL codes?
+
+  - intent: admission8
+    examples: |
+      - Where should I mail my application materials?
+      - Can you tell me where to send my application materials by mail?
+      - I need to mail my application materials. Where should I send them?
+      - What is the mailing address for submitting application materials?
+      - Where can I find the address to mail my application materials?
+
+  - intent: admission9
+    examples: |
+      - What are my chances of getting into the program?
+      - Can you tell me my likelihood of being accepted into the program?
+      - I'm wondering about my chances of admission to the program.
+      - How likely am I to get into the program?
+      - What are the odds of me being accepted into the program?
+
+  - intent: admission10
+    examples: |
+      - When is the admission decision made?
+      - Can you tell me when I'll hear back about my admission decision?
+      - I'm curious about the timing of the admission decision. When will it be made?
+      - How long does it typically take to receive an admission decision?
+      - At what point will I find out about my admission decision?
+
+  - intent: admission11
+    examples: |
+      - Is there a time limit for completing the master's degree?
+      - Can you tell me if there's a deadline for finishing the master's degree?
+      - I'm wondering about the time frame for completing the master's degree.
+      - How long do I have to complete the master's degree program?
+      - Is there a maximum duration for completing the master's degree?
+
+  - intent: admission12
+    examples: |
+      - Is there a time limit for completing the Ph.D. program?
+      - Can you tell me if there's a deadline for finishing the Ph.D. program?
+      - I'm wondering about the time frame for completing the Ph.D. program.
+      - How long do I have to complete the Ph.D. program?
+      - Is there a maximum duration for completing the Ph.D. program?
+
+  - intent: admission13
+    examples: |
+      - What are the tuition and fee costs for graduate school?
+      - Can you provide information about the tuition and fees for graduate school?
+      - I'm interested in knowing the costs of tuition and fees for graduate school.
+      - How much do I need to pay for tuition and fees for graduate school?
+      - Can you tell me about the expenses associated with graduate school tuition and fees?
+
+  - intent: admission14
+    examples: |
+      - How do I transfer graduate course credit to UTD?
+      - Can you provide information on transferring graduate course credit to UTD?
+      - I'm interested in transferring course credit to UTD. How can I do that?
+      - What is the process for transferring graduate course credit to UTD?
+      - How can I transfer my previous graduate course credit to UTD?
+
+  - intent: admission15
+    examples: |
+      - What are the prerequisite courses listed in my admissions letter?
+      - Can you tell me the prerequisite courses mentioned in my admissions letter?
+      - I received my admissions letter. How can I find the prerequisite courses listed in it?
+      - Where can I find the list of prerequisite courses mentioned in my admissions letter?
+      - How can I check the prerequisite courses required as per my admissions letter?
+
+  - intent: admission16
+    examples: |
+      - How would I apply for waivers of prerequisite courses?
+      - Can you provide information on applying for waivers of prerequisite courses?
+      - I'm interested in applying for waivers of prerequisite courses. What's the process?
+      - What steps do I need to take to apply for waivers of prerequisite courses?
+      - Is there a procedure for requesting waivers of prerequisite courses?
+
+  - intent: admission17
+    examples: |
+      - I'm a newly admitted international student. When will I receive my I-20?
+      - Can you tell me when I'll receive my I-20 as a newly admitted international student?
+      - When should I expect to receive my I-20 after being admitted as an international student?
+      - How long does it typically take to receive the I-20 after admission as an international student?
+      - What is the timeline for receiving the I-20 after admission for international students?
+
+  - intent: admission18
+    examples: |
+      - Will my I-20 be sent with my admissions letter?
+      - Can I expect to receive my I-20 along with my admissions letter?
+      - Does the admissions letter include the I-20?
+      - Will both the admissions letter and the I-20 be sent together?
+      - Should I anticipate receiving my I-20 in the same package as my admissions letter?
+
+  - intent: admission19
+    examples: |
+      - Where can I view a complete list of graduate courses in computer science?
+      - Can you tell me where to find a comprehensive list of graduate courses in computer science?
+      - I'm looking for a complete list of graduate courses in computer science. Where can I find it?
+      - How can I access a detailed list of all graduate courses available in computer science?
+      - Is there a resource where I can see all the graduate courses offered in computer science?
+
+  - intent: admission20
+    examples: |
+      - I have been admitted to the graduate CS program. How many classes should I take during my first semester?
+      - Can you tell me how many classes I should enroll in for my first semester in the graduate CS program?
+      - What is the recommended number of classes to take during my first semester in the graduate CS program?
+      - How many courses are typically recommended for the first semester of the graduate CS program?
+      - As a newly admitted graduate CS student, how many classes should I consider taking in my first semester?
+
+  - intent: admission23
+    examples: |
+      - How can I determine whether my research interests are compatible with those of the faculty?
+      - Can you provide guidance on assessing the compatibility of my research interests with the faculty's?
+      - I'm unsure how to determine if my research interests align with those of the faculty. Can you help?
+      - What steps should I take to evaluate the compatibility of my research interests with the faculty's?
+      - Is there a method for determining if my research interests are in line with the faculty's?
+
+  - intent: admission24
+    examples: |
+      - What types of financial assistance are available?
+      - Can you tell me about the different forms of financial assistance offered?
+      - I'm interested in learning about the various financial assistance options available. Can you provide information?
+      - What kinds of financial aid are offered to students?
+      - How can I find out about the available financial assistance programs?
+
+  - intent: testing
+    examples: |
+      - where should I take my tests?
+      - where should I take my exams?
+
+  - intent: usecase
+    examples: |
+      - what can you do?
+      - what can you help me with?
+      - what are you capable of?
+
+  - intent: hold
+    examples: |
+      - What is a hold?
+      - How can I see my holds?
+      - Where do I access the holds on my account?
+      - what prevents me from registering for my classes?
+
+  - intent: transcriptHold
+    examples: |
+      - How do I remove a transcript hold?
+      - remove a transcript hold
+
+  - intent: withrawUTD
+    examples: |
+      - I withdrew from UT Dallas last semester and I would like to reenter this semester. What do I need to do?
+      - I withdrew from UTD semester and I would like to reenter this semester. What should I do?
+
+  - intent: transcriptreq
+    examples: |
+      - How do I request my transcript from the university?
+      - Can you help me with obtaining my university transcript?
+      - What is the process for getting my transcript from UTD?
+      - Where can I find information on requesting a transcript?
+      - I need to get a copy of my transcript, how do I go about it?
+      - What are the steps to request my academic transcript?
+      - Is there a way to order my official transcript online?
+      - How can I access my official university transcript?
+      - Who should I contact to request a transcript from UTD?
+      - Can you guide me through the transcript request procedure?
+
+  - intent: ask_academic_standing_GPA
+    examples: |
+      - What GPA do I need to maintain to stay in good academic standing?
+      - What GPA is required to remain in good academic standing?
+      - How high does my GPA need to be to stay in good standing?
+      - Can you tell me the required GPA to maintain good academic standing?
+      - What's the minimum GPA to stay in good academic standing?
+      - Is there a specific GPA I should aim for to be in good academic standing?
+      - How do I know if my GPA is good enough to stay in good academic standing?
+      - What's the threshold GPA for staying in good academic standing?
+      - What's the GPA requirement to avoid academic probation?
+
+  - intent: events
+    examples: |
+      - What events are happening at UTD?
+      - events at UTD?
+      - what are the upcoming events?
+      - upcoming events
+      - is there a UTD calendar?
+      - Where is the comet calendar?
+      - comet calendar
+
+  - intent: temoc
+    examples: |
+      - Who is Temoc?
+      - Temoc?
+      - Who is Enarc?
+      - Enarc?
+      - Who is the school mascot?
+      - UTD mascot
+      - mascot?
+
+  - intent: housing_meal
+    examples: |
+      - How do I pay my housing and/or meal plan charges?
+      - how do I pay housing charges?
+      - how do i pay meal plan charges?
+      - pay for housing
+      - pay for meals
+
+  - intent: take_future_class
+    examples: |
+      - What classes should I take next semester?
+      - which classes do I take?
+      - new classes next semester
+      - what classes do i take in the future?
+      - what type of classes do I need to take?
+
+  - intent: richardbenson
+    examples: |
+      - Who is Richard Benson?
+      - Richard Benson
+
+  - intent: deanofstudents
+    examples: |
+      - What is Dean of Students?
+      - Dean of Students?
+      - DOS?
+      - Dean?
+
+  - intent: studentsuccesscenter
+    examples: |
+      - What is student success center?
+      - student success center?
+      - SSC?
+      - Where can I get help for tutoring in my classes?
+      - Where can I get tutoring?
+
+  - intent: utdlibrary
+    examples: |
+      - UTD library
+      - Who is Eugene Mcdermont?
+      - Where is the UTD Library?
+      - Where is the library?
+
+  - intent: elearning
+    examples: |
+      - How to access elearning?
+      - What is elearning?
+      - elearning
+      - How to access blackboard?
+
+  - intent: emergency
+    examples: |
+      - Has anything happeened at UT Dallas today?
+      - What is going on on campus?
+      - Tornado warning
+      - Severe thunderstorm warning
+      - campus closed
+      - classes cancelled
+      - winter storm warning
+      - Inclement weather 
+      - tornado warning
+      - campus shooting
+      - shooting
+      - lockdown
+      - campus lockdown 
+      - What is going on at UT Dallas?
+      - UT Dallas Emergency
+      - UTD Police
+      - UT Dallas Police
+      - ut dallas police
+      - utd police
+      - police
+      - cops
+
+  - intent: parking
+    examples: |
+      - How to get parking permit at UT Dallas?
+      - Parking at UT Dallas?
+      - UTD Parking
+      - Parking
+      - Parking Permit
+
+  - intent: degrees
+    examples: |
+      - what degrees are offered at utd?
+      - what majors are offered at utd?
+      - UTD Majors
+      - utd degrees
+      - degrees at utd
+      - majors at utd
+      - what degrees can i take at utd
+      - what majors can i pursue at utd
+
+  - intent: certifications
+    examples: |
+      - what certifications are offered at utd?
+      - what certificates are offered at UTD?
+      - certificates at utd
+      - are there certifications at utd
+      - certifications
+
+  - intent: schools
+    examples: |
+      - what schools are at utd?
+      - schools at UTD?
+      - depending on my degree, which school would i attend at utd?
+      - what school at utd can i choose?
+      - schools
+
+  - intent: honors
+    examples: |
+      - is there honors at utd?
+      - honors college at UTD?
+      - can i take honors classes?
+      - honors school
+      - utd honors program
+
+  - intent: education_abroad
+    examples: |
+      - is there study abroad at utd?
+      - can i study abroad at utd
+      - is there education oversees?
+      - study abroad
+      - education abroad
+      - study and work abroad at UTD?
+
+  - intent: athletics
+    examples: |
+      - does UTD offer sports?
+      - sports teams at utd?
+      - what sports can i play at UTD?
+      - college sports
+      - are there sports at utd?
+      - are there games at utd?
+      - athletic life at UTD
+
+  - intent: esports
+    examples: |
+      - does UTD offer esports?
+      - esports teams at utd?
+      - what esports can i join at UTD?
+      - college esports
+      - is there an esports team at UTD?
+
+  - intent: recreation
+    examples: |
+      - does UTD offer recreation?
+      - intramural teams at utd?
+      - what intramural sports can i join at UTD?
+      - intramural sports
+      - are there an intramural teams at UTD?  
+      - recreation
+
+  - intent: paytuition
+    examples: |
+      - How do I pay my tuition?
+      - pay my tuition?
+      - how do i pay for classes?
+      - where can i pay for my tuition?
+      - where do i pay for classes?
+
+  - intent: classes
+    examples: |
+      - how do i register for classes?
+      - how do i add classes?
+      - how do i drop classes?
+      - how to register for classes?
+      - register for classes
+      - add classes to schedule?
+      - how to create schedule?
+      - withdraw from classes?
+      - how to manage schedule?
+
+  - intent: classes_offcampus
+    examples: |
+      - What do I do if I want to take classes off campus?
+      - i want to take classes off campus
+      - can i take classes off campus?
+      - classes off campus?
+      - can i take classes somewhere else?
+
+  - intent: major_change
+    examples: |
+      - How do I change my major?
+      - can i change my major
+      - where can i change my major
+      - major change
+      - i want to change my major
+
+  - intent: minor
+    examples: |
+      - How do I declare a minor?
+      - can i minor?
+      - i want to minor
+      - how do minors work?
+      - minor
+
+  - intent: core
+    examples: |
+      - How do I find out what constitutes as a core curriculum class?
+      - what is a core class?
+      - what core classes do i need to take?
+      - core classes
+      - core curriculum
+
+  - intent: limithours
+    examples: |
+      - Am I limited to how many credit hours I can take in one semester?
+      - how many credit hours can i take?
+      - limit on credit hours
+      - credit hours limit
+
+  - intent: cometcard
+    examples: |
+      - Who needs a Comet Card?
+      - do i need a comet card?
+      - do i need an id card
+      - who can get a comet card
+      - do i get a comet card
+      - who needs an id card?
+
+  - intent: cometcard2
+    examples: |
+      - what is a comet card?
+      - comet card
+      - do we recieve an id?
+      - campus identification
+      - campus id
+      - id card
+
+  - intent: cometcard3
+    examples: |
+      - What documentation do I need to get a Comet Card?
+      - what do i need to bring to get a comet card?
+      - documents for comet card?
+      - do i need to bring anything when getting a comet card?
+
+  - intent: cometcard4
+    examples: |
+      - Is there a charge or fee for the Comet Card?
+      - do i need to pay for comet card?
+      - comet card payment?
+      - pay for comet card
+
+  - intent: cometcard5
+    examples: |
+      - Where do I get my Comet Card?
+      - where can i get comet card
+      - where is comet card
+      - where to go to get my id card
+
+  - intent: cometcard6
+    examples: |
+      - What if my Comet Card is lost or stolen?
+      - my comet card got lost
+      - my comet card got stolen
+      - idk where my comet card is
+      - what to do if comet card is lost
+
+  - intent: cometcard7
+    examples: |
+      - How does a faculty or staff member acquire a Comet Card?
+      - how can faculty get comet card
+      - how can staff get comet card?
+      - if i work at utd how to get cometcard?
+
+  - intent: cometcard8
+    examples: |
+      - Will the Comet Card pay tuition?
+      - can i pay my tuition with my comet card?
+      - can comet card pay for tuition?
+      - Will i be able to pay tuition with comet card
+      - comet card tuition
+
+  - intent: cometcard9
+    examples: |
+      - Can visitors to UT Dallas obtain a Comet Card?
+      - if i dont go to utd can i get comet card?
+      - comet card for visitors
+      - can anyone get a comet card?
+
+  - intent: headcovering
+    examples: |
+      - Can I wear a head covering?
+      - are head coverings allowed?
+      - head covering
+      - will i be able to wear head coverings
+      - utd policy on head coverings
+
+  - intent: galaxy1
+    examples: |
+      - what is galaxy?
+      - what does galaxy do?
+      - what is the purpose of galaxy?
+      - What is orion?
+      - Where to check grades?
+      - Where to enroll for classes?
+      - Where to sign up for classes?
+      - Where to view grades?
+      - Where to access enrollment information?
+
+  - intent: galaxy2
+    examples: |
+      - who can use galaxy?
+      - who has access to galaxy?
+      - who can access galaxy?
+      - can i use galaxy
+
+  - intent: galaxy3
+    examples: |
+      - where can i get galaxy?
+      - where can i access galaxy?
+      - how to access galaxy?
+      - where can i find galaxy?
+
+  - intent: galaxy4
+    examples: |
+      - how much does galaxy cost?
+      - do i have to pay for galaxy?
+      - is there pricing on galaxy
+      - do i pay for galaxy
+      - galaxy payment
+
+  - intent: duo
+    examples: |
+      - what is duo?
+      - duo utd
+      - duo
+      - what can dup do?
+
+  - intent: y_courseinfo
+    examples: |
+      - How to view course information at UT Dallas
+      - How to view course information
+      - course information
+      - how to view course info
+      - what is course information
+      - how to view coursebook
+      - how to check coursebook
+      - how to access coursebook
+      - course info 
+      - courses
+      - course 
+      - CS 1336
+      - CS 1337
+      - cs 1136
+      - cs class info
+      - CS class information
+      - cs 1337
+      - cs 2336
+      - cs 2305
+      - cs 2337
+      - cs 3305
+      - cs 3354
+      - cs 1436
+      - CS 1436
+      - cs 2340
+      - se 3305
+      - programming courses
+      - fundamental courses
+      - MATH
+      - AMS
+      - PHYS
+      - CRIM
+      - course description
+      - utd coursebook
+      - coursebook
+      - ut dallas courses
+      - utd courses
+
+  - intent: y_degreeinfo
+    examples: |
+      - How to view degree information at UT Dallas
+      - How to view degree information
+      - degree information
+      - degree info
+      - degree
+      - what is the degree information like at ut dallas
+      - what is the degree information
+      - any degree information available
+      - any degree information
+      - computer science degree information
+      - data science degree information
+      - math degree information
+      - physics degree information
+      - UTD degree information
+      - utd degree information
+      - ut dallas degree
+      - ut dallas degree information
+
+  - intent: y_orientation
+    examples: |
+      - orientation 
+      - when is freshman orientation?
+      - freshman orientation
+      - where is freshman orientation
+      - how to view orientation information
+      - where is orientation information
+      - orientation information
+      - orientation info
+      - how to view orientation information
+      - where to check my orientation information
+
+  - intent: y_careerhelp
+    examples: |
+      - ut dallas career center
+      - career
+      - what is the utd career center
+      - where can I get help on campus for employment
+      - where is the utd career center
+      - what is the utd job outlook like
+      - how to get an internship 
+      - how to get a job
+      - career help
+      - career center
+      - utd career center
+      - where can I get help finding work
+      - how to find job
+      - job search 
+      - job search help
+      - internship search
+      - internship help
+      - internship
+      - intern
+      - job
+
+  - intent: y_healthandwellness
+    examples: |
+      - health 
+      - is there a student health center 
+      - where to get help with my health 
+      - is there an on campus health center
+      - wellness
+      - health and wellness
+      - doctor
+      - student health center
+      - utd student health
+      - ut dallas health
+
+  - intent: y_sociallife
+    examples: |
+      - social 
+      - social life
+      - campus organizations
+      - what is the social life like at ut dallas
+      - any on campus social life
+      - what is the utd social life like
+      - ut dallas social life
+      - utd social 
+      - utd social life
+
+  - intent: y_campusnavigation
+    examples: |
+      - how to tour utd
+      - how to visit utd
+      - where can I get a tour of campus
+      - where can I get a tour of ut dallas
+      - how to tour ut dallas
+      - is there a way to tour ut dallas virtually
+      - how to visit ut dallas
+      - where is ut dallas
+      - tour utd
+      - visit utd
+      - visit ut dallas
+      - tour ut dallas
+      - campus tour
+      - campus visit
+      - map of utd
+      - utd map
+      - ut dallas map
+      - campus map
+      - see campus
+      - see utd
+      - see ut dallas
+      - map
+
+  - intent: y_campusresources
+    examples: |
+      - campus resources
+      - are there any resources available
+      - are there any resources on campus
+      - any campus resources 
+      - are there any helpful resources
+      - what are some of the resources available on campus
+      - what are some of the campus resources available
+      - resources on campus
+      - utd resources
+      - resources
+      - ut dallas resources
+      - what are some helpful campus resources
+      - helpful resources
+
+  - intent: y_csmentoringcenter
+    examples: |
+      - where to get tutoring for my cs courses
+      - where to get tutoring for my cs classes
+      - cs tutoring
+      - what is the computer science mentoring center
+      - what is the computer science tutoring center
+      - where is tutoring for computer science classes
+      - where is tutoring for computer science courses
+      - what is the computer science mentoring center
+      - what is cs mentor center
+      - where is the computer science tutoring
+      - cs mentor center
+      - mentor center
+      - computer science tutoring
+      - csmentorcenter
+      - computer science mentor center
+
+  - intent: y_hackathonguidance
+    examples: |
+      - acm
+      - where to find a hackathon 
+      - is there any computer science organizations
+      - are there any computer science hackathons
+      - are there any hackathon organizations
+      - are there any computer science organizations
+      - when is the next hackathon
+      - when is the next utd hackathon
+      - does ut dallas host hackathons
+      - how to join hackutd
+      - how to join a hackathon
+      - how to join acm
+      - hackathon
+      - hackathonguidance
+      - hackutd
+      - utd hack
+      - utd hackathon
+      - ut dallas hackathon
+
+  - intent: y_gradrequirements
+    examples: |
+      - graduation requirements
+      - what do I need to do in order to graduate
+      - how do I graduate
+      - grad requirements
+      - grad path
+      - path to graduation
+      - what are the grad requirements
+      - what do I need to do in order to get my degree
+      - what are the graduation requirements
+      - how do I find my graduation requirements
+      - what are the requirements for graduation
+      - what is the path to graduation
+      - where is my path to graduation
+      - requirements for graduation
+      - requirements to graduate
+
+  - intent: y_academicadvising
+    examples: |
+      - academic advising
+      - academic advisor
+      - what is the academic advising at ut dallas
+      - where is academic advising 
+      - how do I find my academic advisor
+      - how do I contact my academic advisor
+      - who do I contact in order to register for my courses
+      - who I contact in order to register for my classes
+
+  - intent: y_scholarship
+    examples: |
+      - scholarship
+      - academic excellence scholarship
+      - how do I qualify for a scholarship
+      - what is a scholarship
+      - how to earn merit based aid
+      - are there any scholarships available at ut dallas
+      - are there any scholarships available at utd
+      - what is aes scholarship
+      - what is academic excellence scholarship
+      - merit based aid
+      - utd scholarship
+      - ut dallas scholarship
+      - scholarships at utd
+      - scholarships at ut dallas
+      - aes
+
+  - intent: y_housing
+    examples: |
+      - housing
+      - housing at ut dallas
+      - how to get housing at ut dallas
+      - where do I get housing on campus
+      - how to get housing
+      - where do I stay on campus
+      - how to stay on campus
+      - what is university village
+      - what is residence halls
+      - what is canyon creek heights
+      - how can I stay at canyon creek heights
+      - how can I live on campus
+      - is there any information about ut dallas housing
+      - what is ut dallas housing
+      - utd housing
+      - ut dallas housing
+      - on campus housing
+      - campus residency
+      - campus housing
+      - residence halls
+      - canyon creek heights
+      - cchs
+      - reshalls
+      - university village
+      - northside
+      - freshman dorms
+      - dorms
+      - uv apartments
+      - cchs apartment
+      - cchn apartment
+      - apartments on campus
+      - utd apartments
+      - cchs
+      - cchn
+      - phase apartments
+
+  - intent: y_accessibility
+    examples: |
+      - disability
+      - disability services
+      - accessibility
+      - accessibility services
+      - wheelchair
+      - where can I get accommodations
+      - accommodations
+      - extend exam time
+      - where can I extend my exam time 
+      - where can I get accommodations for my courses
+      - where can I get accommodations for my classes
+      - how can I get accommodations for my courses
+      - how can I get accommodations for my classes
+      - how can I get acommodations for my disability
+      - where can I get acommodations for my disability
+      - extended exam time
+
+  - intent: y_timemanagement
+    examples: |
+      - time management
+      - how to manage time
+      - how to access time management resources
+      - how to study
+      - are there any study tips
+      - how to manage my time
+      - manage time
+      - utd time management
+      - ut dallas time management
+      - study time tips
+      - time management tips
+
+  - intent: y_dininginfo
+    examples: |
+      - utd dining
+      - dining
+      - where to eat on campus
+      - im hungry
+      - where to get food on campus
+      - how to get food on campus
+      - what is the utd meal plan
+      - how to get the meal plan
+      - on campus dining
+      - food
+      - meal plan
+      - food options
+      - ut dallas dining
+      - dining hall
+      - dining hall west
+      - ut dallas dining hall
+      - comet meal plans
+      - meal
+      - campus food
+      - campus dining
+
+  - intent: y_gym
+    examples: |
+      - gym
+      - ut dallas gym
+      - how to access rec center west
+      - how to access activity center
+      - where to access activity center
+      - what is the activity center
+      - what is the recreation center west
+      - where is the activity center
+      - where is the recreation center west
+      - rec center west
+      - activity center
+      - urec
+      - ut dallas recreation
+      - utd gym
+      - weight training
+      - workout
+      - where do I get a workout in
+      - how do I get a workout in
+      - how to access the on campus gym
+      - where to access the on campus gym
+      - on campus gym
+      - on campus rec
+      - utd rec
+      - utd recreation
+      - university recreation
+      - running
+      - cross training
+      - treadmill
+      - elliptical
+      - biking
+      - cycling
+      - swimming
+      - tell me where the gym is
+
+  - intent: y_athletics
+    examples: |
+      - utd athletics
+      - athletics
+      - sports
+      - comet sports
+      - utd sports teams
+      - sport teams
+      - ut dallas athletics
+      - utd sports
+      - ncaa
+      - basketball team
+      - soccer team
+      - football team
+      - cross country team
+      - track team
+      - ut dallas cross country
+      - utd cross country
+      - utd track
+      - ut dallas track
+      - ut dallas men's sports
+      - ut dallas women's sports
+      - women's sports
+      - men's sports
+      - cross country
+      - track
+      - soccer
+      - baseball
+      - ut dallas baseball team
+      - baseball team
+      - basketball
+      - volleyball
+      - golf
+      - men sports
+      - women sports
+      - school sports
+      - school teams
+      - varsity sports
+      - varsity teams
+      - who is playing tonight
+      - tell me about the utd sports
+
+  - intent: y_bookstore
+    examples: |
+      - how do I get to the bookstore
+      - where to access the ut dallas bookstore
+      - where is the bookstore
+      - where to buy school supplies
+      - how to buy school supplies
+      - where do I purchase my graduation regalia
+      - where to purchase school supplies
+      - where do I purchase school supplies
+      - where to buy class textbooks
+      - how to buy class textbooks
+      - tell me how to get to the utd bookstore
+
+  - intent: whoosh
+    examples: |
+      - What is whoosh?
+      - Does UTD have a campus sign?
+      - Does UTD have a hand gesture
+      - utd hand gesture
+      - what is utd symbol
+      - utd hand symbol?
+
+  - intent: address
+    examples: |
+      - Where is UTD located?
+      - what are the directions to utd
+      - how can i get to utd
+      - directions to campus
+      - where is campus?
+      - tell me where utd is located
+      - where is utd
+
+  - intent: aboututd
+    examples: |
+      - What is UTD?
+      - what is the university of texas at dallas
+      - what is utd known for
+      - who is utd?
+      - The University of Texas at Dallas
+      - UTD
+      - univ of texas at dallas
+      - about utd
+      - tell me about utd
+      - give me details about utd
+
+  - intent: alumni
+    examples: |
+      - does utd have alumni?
+      - utd alumni
+      - utd alumni association
+      - utd alumni perks
+      - who am i after graduating from utd?
+      - what are utd students called after graduating from utd
+
+  - intent: counseling
+    examples: |
+      - i need to talk to someone
+      - my mental health is not good
+      - where can i get help for my mental health?
+      - suicide
+      - where can i get counseling?
+      - counseling
+      - school counselor
+
+  - intent: genai
+    examples: |
+      - generative ai at utd
+      - generative ai
+      - what is generative ai?
+      - how does UTD use generative ai?
+      - is there generative ai at UTD?
+
+  - intent: netid
+    examples: |
+      - I'm having trouble with my NetID
+      - I want to reset my password
+      - my account got locked
+      - how to activate my account
+      - netid
+      - first time account setup
+      - manage my netid
+      - how can i reset my password?
+
+  - intent: mobileapp
+    examples: |
+      - Does UTD have a mobile app?
+      - Is there an app for UTD?
+      - can i use the utd app on my phone?
+      - can i download the utd app on my phone?
+      - utd app
+      - utd application
+
+  - intent: y_ecsadvising
+    examples: |
+      - How do I access my ecs advisors?
+      - Who do I reach out to for computer science advising?
+      - Who do I reach out to for ECS advising?
+      - Who is my CS advisor?
+      - Who is my ECS advisor?
+      - How to access my advisor?
+      - Who is academic advisor?
+      - ecs advising
+      - ecs advisor
+      - cs advisor
+      - computer science advising
+
+  - intent: y_ifriendprogram
+    examples: |
+      - How do I make friends?
+      - What is the ifriend program?
+      - How to make friends as an international student?
+      - Who wants to be my friend?
+      - ifriend program
+      - ifriend
+
+  - intent: y_internationalweek
+    examples: |
+      - What is the international week at UTD?
+      - What is the international week at UT Dallas?
+      - When is the international week at UTD?
+      - When is the international week at UT Dallas?
+      - International Week at UTD
+      - International Week
+
+  - intent: y_internationalstudentorientation
+    examples: |
+      - What is the international student orientation at UTD?
+      - International Student Orientation
+      - ISO
+      - international student orientation
+      - when is the international student orientation at ut dallas?
+      - when is the ISO at utd?
+
+  - intent: y_internationaladmissions
+    examples: |
+      - How to get in to ut dallas as an international student?
+      - International student admissions?
+      - What is the admissions process like as an international student at UT Dallas?
+      - How to get into UT Dallas as an international student?
+      - How to get into UTD as an international student?
+
+  - intent: y_utddirectory
+    examples: |
+      - Where can I find the directory?
+      - Where is the directory
+      - Where can I find the ut dallas student directory
+      - where is the directory itself
+      - Where can I find the contact information for a student at ut dallas?
+      - Where is the contact information for a student
+      - Where is the contact information for a professor
+      - Where can I find the contact information for a professor at ut dallas
+      - Where can I find the ut dallas directory
+      - Where is the ut dallas directory
+      - UTD directory
+      - ut dallas directory
+
+  - intent: y_utdhumanresources
+    examples: |
+      - Where can I find HR at UTD?
+      - human resources at ut dallas
+      - Where can I find human resources?
+      - human resources
+      - HR at UTD
+      - UTD human resources
+
+  - intent: y_oitservicedesk
+    examples: |
+      - When is the oit service desk open?
+      - oit service desk
+      - oit desk
+      - Hours for OIT service desk
+      - What are the hours for OIT service desk?
+      - OIT service desk
+      - service desk
+      - Where can I get my email fixed?
+      - Where can I fix my duo authentication?
+      - Where can I get my online troubleshooting issue fixed?
+
+  - intent: y_techknowledgybar
+    examples: |
+      - techknowledgybar
+      - Where can I get my laptop fixed?
+      - Where can I get my computer fixed?
+      - Where can I fix my online DUO authentication in person?
+      - Where can I fix my laptop charger?
+      - Where can I charge my laptop?
+      - Where can I charge my phone?
+      - Where can I get assistance regarding using MS teams
+      - Where can I get assistance using my laptop?
+      - Microsoft 365/teams consulting
+      - Remote Work/Learn Setup
+      - Freshman comet laptop setup
+      - Where can I get help with Microsoft Teams?
+
+  - intent: y_campuslife
+    examples: |
+      - What is the campus life like at UTD?
+      - Campus Life at UTD?
+      - Campus Life at UT Dallas
+
+  - intent: y_greeklife
+    examples: |
+      - Greek life at UT Dallas
+      - Fraternities and Sororities 
+      - Greek Life
+      - Frats
+      - Sororities
+      - Kappa Alpha Sigma
+      - UTD fraternities and sororities
+      - ut dallas fraternities and sororities
+      - utd chapters
+      - UTD chapters
+      - UT Dallas campus fraternities and sororities
+      - UT Dallas chapters
+
+  - intent: y_studentspaces
+    examples: |
+      - Any student spaces on campus?
+      - Any student spaces on campus?
+      - Any on campus student spaces?
+      - Student spaces?
+      - Any cool places to hangout on campus?
+      - What are some cool places to study on campus?
+      - What are some study locations on campus?
+      - Any study areas?
+      - Where to hangout on campus?
+
+  - intent: y_studentunion
+    examples: |
+      - Student Union
+      - studentunion
+      - Where is the student union on campus?
+      - What is the student union?
+      - UT Dallas student union
+      - SU
+
+  - intent: y_workatutdallas
+    examples: |
+      - Where can I find work at UTD?
+      - work at ut dallas
+      - ut dallas jobs
+      - on campus work
+      - on campus jobs
+      - Where can I find work on campus
+      - Where can I find work at UT Dallas
+      - UTD jobs
+
+  - intent: y_studentmedia
+    examples: |
+      - UT Dallas student media
+      - utd student media
+      - student media
+      - The Mercury
+      - RadioUTD
+      - UTDTV
+      - on campus media
+      - ut dallas media
+      - AMP
+      - studentmedia
+      - the mercury
+
+  - intent: y_studentachievements
+    examples: |
+      - UT Dallas student achievements
+      - Student achievements 
+      - UTD student achievements
+      - Where can I find any accomplishments of students at UT Dallas?
+      - What are the potential outcomes for students at UT Dallas?
+
+  - intent: y_utdtalk
+    examples: |
+      - UTD Talk
+      - I need to talk to someone now
+      - I am in a mental health crisis
+      - Who can I call for mental health crisis
+      - I need to speak to a therapist
+
+  - intent: y_studentcounselingcenter
+    examples: |
+      - Where can I find the counseling center at UT Dallas?
+      - UTD student counseling center
+      - UT Dallas counseling center
+      - counseling center
+      - Where can I see an on campus therapist?
+      - UT Dallas therapist
+      - student counseling center
+      - I am struggling mentally and I need help
+
+  - intent: y_busservice
+    examples: |
+      - Comet Cruiser
+      - UTD Bus Station
+      - UTD Bus Service
+      - Bus Service
+      - Where can I find the comet cruiser?
+      - UT Dallas bus station
+      - UT Dallas bus service
+      - DART service 
+      - UTD DART 
+      - public transportation
+      - How to get around without a car?
+      - How to travel around without a car?
+      - How to travel without car
+      - How to get to campus without a car
+
+  - intent: y_campushealthpromotion
+    examples: |
+      - UTD Campus Health 
+      - Campus Health Promotion
+      - How can I promote health on campus
+      - On Campus health
+      - What is ut dallas safety guidelines for students?
+
+  - intent: y_newdimensionsutd
+    examples: |
+      - Where can I donate to UT Dallas?
+      - Where can I donate to UTD?
+      - UTD donation
+      - new dimensions utd
+      - newdimensions utd
+      - newdimensionsutd
+      - newdimensionsutdallas
+      - ut dallas donation
+
+  - intent: y_utdoit
+    examples: |
+      - Office of Information Technology
+      - UT Dallas OIT
+      - Where can I get any technical help?
+      - UTD OIT
+      - information technology
+
+  - intent: y_openaccesslabs
+    examples: |
+      - Where can I find any open computer labs?
+      - What are the hours of the computer labs?
+      - Open Access Labs
+      - Computer Labs on campus
+      - Open Computer Labs
+      - Where can I print?
+      - Where to print?
+      - UTD computer labs
+      - ut dallas computer labs
+
+  - intent: y_utdesign
+    examples: |
+      - UTdesign 
+      - UTDesign
+      - On campus projects
+      - capstone project
+      - UTD design 
+      - UTD design projects
+      - senior design projects
+      - UTDesign projects
+      - senior projects
+
+  - intent: y_utdbighowdy
+    examples: |
+      - utdbighowdy
+      - How can I get travel assistance to campus from airport as an international student?
+      - International Student Travel Center
+      - International Student travel assistance
+      - How can I get travel assistance to campus as an international student?
+      - UTD international student travel
+
+  - intent: y_utdimmigrationadvising
+    examples: |
+      - Where can I get immigration information?
+      - Where can I get help with my Visa?
+      - Where can I get help with my immigration status?
+      - UT Dallas immigration services
+      - immigration services
+      - utd immigration 
+      - visa services
+
+  - intent: y_utdtoday
+    examples: |
+      - Any newsflash on campus?
+      - What are some cool things happening around campus?
+      - Any cool things at UT Dallas?
+      - utdtoday
+      - Newsflash
+      - UT Dallas newspaper
+      - Comet Newspaper
+
+  - intent: y_youarewelcomehere
+    examples: |
+      - Do I belong here?
+      - Am I welcome here?
+      - What is you are welcome here?
+      - youarewelcomehere
+      - you are welcome here
+
+  - intent: y_myutd
+    examples: |
+      - Experience a day in the life of a comet
+      - day in the life of a utd student
+      - day in the life
+      - myutd
+      - day in the life of a ut dallas student
+
+  - intent: y_academicresources
+    examples: |
+      - What are some helpful academic resources on campus?
+      - Any academic resources on campus?
+      - What are some academic resources?
+      - Any helpful academic resources?
+      - academic resources
+      - UT Dallas academic resources
+      - UTD academic resources
+
+  - intent: y_testingcenter
+    examples: |
+      - Testing Center
+      - Where can I take the ALEKS exam?
+      - Where can I take the exam?
+      - Where to test?
+      - Where can I test?
+      - How to test?
+      - On campus testing center
+      - UT Dallas testing center
+      - UTD testing center
+
+  - intent: y_teachingresources
+    examples: |
+      - Teaching Resources
+      - Where can I access my teaching resources?
+      - Where can I access teaching resources?
+      - Teaching assistance
+      - TA assistance
+      - Resources for professors
+      - Faculty Resources
+
+  - intent: y_utdgrades
+    examples: |
+      - UTDgrades
+      - Where can I see how students did in each class?
+      - Where can I access the grade distribution for each class?
+      - UT Dallas class grade distribution?
+      - Grades for UT Dallas students?
+      - UT Dallas student grades?
+      - What are some helpful information for signing up for classes?
+
+  - intent: y_cometgivingdays
+    examples: |
+      - Comet Giving Days
+      - What is comet giving days
+      - cometgivingdays
+      - When is the comet giving days event?
+
+  - intent: name
+    examples: |
+      - who are you?
+      - whats your name?
+      - where are you from
+
+  - intent: howareyou
+    examples: |
+      - how are you?
+      - how are you doing?
+      - how are you doing today
+      - are you feeling well?
+      - are you okay
+      - are you well?
+
+  - intent: standfor
+    examples: |
+      - what does UTD stand for?
+      - is UTD short for something else?
+      - UTD meaning?
+      - what is the meaning of UTD?
+      - what is UTD short for?
+      - utd stands for?
+      - does utd mean something
+      - utd definition
+
+  - intent: joke
+    examples: |
+      - tell me a joke
+      - give me a joke
+      - i want to know a joke
+      - you got jokes?
+      - joke
+      - utd joke
+
+  - intent: sing
+    examples: |
+      - can you sing me a song?
+      - sing a song
+      - can you sing?
+      - sing for me
+      - i want you to sing
+      - song
+      - sing
+      - sing me a song
+      - i wanna hear you sing
+
+  - intent: oldest
+    examples: |
+      - what age was the oldest person to attend UTD?
+      - what age was the oldest to go to utd
+      - oldest age at utd
+      - oldest at UT Dallas
+      - oldest age
+      - oldest student
+      - oldest student at utd
+
+  - intent: youngest
+    examples: |
+      - what age was the youngest person to attend UTD?
+      - what age was the youngest to go to utd
+      - youngest age at utd
+      - youngest at UT Dallas
+      - youngest age
+      - youngest student
+      - youngest student at utd
+
+  - intent: socialmedia
+    examples: |
+      - does UTD have social media?
+      - does UTD have social media accounts?
+      - social media
+      - does utd have instagram?
+      - does utd have facebook?
+      - does utd have linkedln?
+      - does utd have twitter?
+      - does UT Dallas use social media
+
+  - intent: utdcost
+    examples: |
+      - how much does UTD cost?
+      - utd affordability
+      - what is the tuition estimate?
+      - how much does it cost to attend utd?
+      - cost of attendance
+      - utd cost
+
+  - intent: affirm
+    examples: |
+      - indeed
+      - of course
+      - that sounds good
+      - thank you
+      - thanks
+      - appreciate it
+      - awesome
+      - you are amazing
+      - much appreciate it
+      - great
+
+  - intent: deny
+    examples: |
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+
+  - intent: mood_great
+    examples: |
+      - perfect
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+
+  - intent: fail
+    examples: |
+      - what happens if i fail a class
+      - a failed my class what now?
+      - i failed my class
+      - what are my options after failing a class
+      - a failed my UTD class
+      - can i retake a class I failed?
+      - i want to retake a class i failed?
+      - retake failed class
+      - what to do when i failed my class
+      - fail class
+
+  - intent: dgrade
+    examples: |
+      - i made a d in my class
+      - i recieved a d in my class
+      - can i retake a class if my grade was a D
+      - what to do when I received a D 
+      - I got a D grade
+      - I got a D, can i retake?
+      - Can i retake a class i made a D in?
+      - D grade
+      - my overall grade was a D
+      - my course grade was a D
+
+  - intent: fasttrack
+    examples: |
+      - can i do the fast track program?
+      - what is the fast track program?
+      - fast track program?
+      - i want to complete my graduate earlier
+      - who can do the fast track program?
+      - how do i apply for the fast track program?
+
+  - intent: parkingcitation
+    examples: |
+      - i recieved a parking ticket
+      - i got a parking violation
+      - what to do after i get a parking ticket?
+      - parking ticket
+      - how do i pay my parking citation?
+      - where can i pay parking ticket?
+      - i got a ticket for parking my car in the wrong place
+      - utd parking violation
+
+  - intent: dance
+    examples: |
+      - does UTD have a dance team?
+      - i want to dance
+      - utd dance team
+      - can i dance at UTD?
+      - dancing at utd
+      - i wanna dance
+      - feel like dancing
+      - dance
+      - dancing
+      - can i dance for UTD?
+
+  - intent: employeebenefits
+    examples: |
+      - what are the employee benefits dor utd
+      - what benefits do i get for working at utd
+      - employee benefits
+      - am i eligible for employee benefits
+      - are there benefits for being employed at ut dallas
+
+  - intent: employeedev
+    examples: |
+      - are there employee training programs?
+      - are there employee development programs?
+      - are there employee training and development programs?
+      - are there programs for utd employees
+      - development programs
+      - training programs
+      - resources and training for utd employees
+
+  - intent: erikjonsson
+    examples: |
+      - what is erik jonsson?
+      - who is erik jonsson?
+      - what is the erik jonsson school of engineering and computer science
+      - what is offered at erik jonsson school?
+      - erik jonsson school
+      - erik jonsson school at utd
+      - erik jonsson school at ut dallas
+      - erik jonsson school of engineering and computer science
+
+  - intent: finalexam
+    examples: |
+      - when is my final exam?
+      - how can i find where my final exam is?
+      - i dont know when my final exam is
+      - idk when my final exam is
+      - final exam
+      - final exam searcher
+      - where can i find the time and location of my final exam
+      - what date is my final
+      - when is my final
+
+  - intent: immunizations
+    examples: |
+      - does utd offer immunizations?
+      - does utd offer health tests?
+      - i want to get vaccines
+      - i want to get immunizations
+      - immunizations
+      - flu shots
+      - Meningitis Vaccine
+      - Allergy injections
+      - Hepatitis B
+      - student health immunizations
+
+  - intent: helpdesk
+    examples: |
+      - my computer shut down
+      - who can i contact for technicial difficulties
+      - my wifi isn't working
+      - duo isn't working
+      - my utd email is not working
+      - i cant sign in to my utd email
+      - i need help with my utd email
+      - i can't access duo
+      - i can't access blackboard
+      - blackboard issues
+      - login issues
+      - technical difficulty
+      - utd help desk
+      - i need help with technology
+
+  - intent: askbot
+    examples: |
+      - help
+      - yay
+      - what
+      - woah
+      - ?
+      - omg
+      - can you help me
+      - i dont know what to say
+      - what to do
+      - im confused
+      - i'm lost
+      - confusion
+      - why
+      - what can you help me with
+      - what can you do
+      - guess what
+      - what do you know
+      - assist
+      - assist me
+      - i need assistance
+      - guide me
+      - tell me more
+      - i wanna know more
+      - tell me more about this
+      - ??
+      - question
+      - please explain
+      - explain
+      - i wonder
+      - i have a question
+      - idk
+
+  - intent: generaladmission
+    examples: |
+      - admission
+      - admissions
+      - graduate admissions
+      - undergraduate admissions
+      - tell me more about admissions
+      - how do admissions at utd work?
+      - admissions at utd?
+
+  - intent: academic_dishonesty
+    examples: |
+      - academic dishonest
+      - plagarism
+      - i cheated what do i do now?
+      - i cheated on my homework
+      - i cheated
+      - cheating
+      - i cheated on my exam
+      - i cheated on my test
+      - i helped someone cheat
+      - i got caught for cheating
+      - collusion
+      - fabrication
+      - how do i know if i cheated?
+      - what counts a plagarism?
+      - i committed academic dishonesty
+
+  - intent: newsletter
+    examples: |
+      - utd newletter
+      - newsletter
+      - does utd have a newsletter?
+      - does utd make newsletters?
+      - ut dallas newsletter
+      - where can i access utd newsletters?
+      - where can i find newsletters?
+
+  - intent: ezpay
+    examples: |
+      - what is ezpay?
+      - ezpay
+      - how do i access ezpay
+      - where is ezpay?
+      - utd ezpay
+
+  - intent: error
+    examples: |
+      - is this valid?
+      - this isn't correct?
+      - are you sure?
+      - can you confirm this?
+      - validate this

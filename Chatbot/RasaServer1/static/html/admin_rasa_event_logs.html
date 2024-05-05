@@ -1,0 +1,363 @@
+<head>
+    <link rel="stylesheet" href="/styles">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<h3>Menu</h3>
+<a href="/static/html/admin_rasa_config.html">Rasa Config</a><br>
+<a href="/static/html/admin_rasa_chat_logs.html">Rasa Chat Logs</a><br>
+<a href="/static/html/admin_rasa_event_logs.html">Rasa Event Logs</a><br>
+<a href="/static/html/admin_rasa_chat_testing.html">Rasa Chat Testing</a><br>
+<a href="/static/html/admin_rasa_session_management.html">Rasa Session Management</a><br>
+
+<h3>RasaServer1 Event Logs</h3>
+<br><br>
+<table id="configTable">
+    <tr>
+        <th>Option</th>
+        <th>Value</th>
+    </tr>
+</table>
+<!-- Query Configuration Form -->
+<form id="queryForm">
+    Criticality: <select id="criticality">
+        <option value="Any">Any</option>
+        <option value="INFO">INFO</option>
+        <option value="DEBUG">DEBUG</option>
+        <option value="WARNING">WARNING</option>
+        <option value="ERROR">ERROR</option>
+        <option value="CRITICAL">CRITICAL</option>
+    </select><br>
+    Start Time: <input type="datetime-local" id="startTime"><br>
+    End Time: <input type="datetime-local" id="endTime"><br>
+    Resource: <input type="text" id="resource" placeholder="'System' for global logs, or put a resource name. Leave blank for everything..."><br>
+    <button type="button" onclick="GetEventLogs()">Refresh</button>
+</form>
+
+<h3>Logging Activity Over Time</h3>
+<canvas id="logChart" width="800" height="400"></canvas>
+
+
+
+<!-- Event Logs Table -->
+<table class="contentTable" id="eventLogsTable">
+    <thead>
+        <tr>
+            <th>Timestamp</th>
+            <th>Resource</th>
+            <th>Message</th>
+            <th>Criticality</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Log entries will be inserted here -->
+    </tbody>
+</table>
+
+<script>
+    config = {};
+    window.onload = async function() {
+        await GetRasaConfig();
+
+        // Set the start time to 48 hours ago
+        const now = new Date();
+        const fortyEightHoursAgo = new Date(now.getTime() - (48 * 60 * 60 * 1000)); // Subtract 48 hours
+        const formattedStartTime = fortyEightHoursAgo.toISOString().slice(0, 16); // Format to 'YYYY-MM-DDTHH:MM'
+        document.getElementById('startTime').value = formattedStartTime;
+
+        await GetEventLogs();
+    }
+    async function GetRasaConfig() {
+        try {
+            const response = await fetch('/admin/rasaserver1/admin/get_config');
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            config = data;
+            populateTable(config);
+        } catch (error) {
+            console.error('Error fetching config:', error);
+        }
+    }
+    async function SetConfigValue(key, value) {
+        if(typeof value === 'string') value = value.trim();
+        else if(Array.isArray(value)) value = value.map(v => v.trim());
+        else if(typeof value === 'number') {
+            if(isNaN(value)) {
+                alert('Invalid number');
+                return;
+            }
+            if(value < 0) {
+                alert('Number must be greater than or equal to 0');
+                return;
+            }
+        }
+        try {
+            const response = await fetch('/admin/rasaserver1/set_config_value', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({key: key, value: value}),
+            });
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            config = data;
+            alert('Config value updated successfully');
+        } catch (error) {
+            console.error('Error setting config value:', error);
+            alert('Error setting config value:', error);
+        }
+    }
+    function populateTable(config) {
+        var table = document.getElementById('configTable');
+        for (var key in config) {
+            if (!config.hasOwnProperty(key)) continue;
+
+            const keys = [
+                'logs_alert_on_criticality',
+            ];
+
+            if (keys.indexOf(key) === -1) continue; // can comment this line out to have everything show up
+
+            if (typeof config[key] === 'object' && !Array.isArray(config[key])){
+                // Handle nested objects
+                var nestedSetting = config[key];
+                for (var nestedKey in nestedSetting) {
+                    if (!nestedSetting.hasOwnProperty(nestedKey)) continue;
+
+                    if (typeof nestedSetting[nestedKey] === 'object' && !Array.isArray(nestedSetting[nestedKey])) {
+                        // Handle two-layer nested object
+                        for (var innerKey in nestedSetting[nestedKey]) {
+                            if (!nestedSetting[nestedKey].hasOwnProperty(innerKey)) continue;
+                            addRow(table, `${key}.${nestedKey}.${innerKey}`, nestedSetting[nestedKey][innerKey]);
+                        }
+                    } else {
+                        // Handle one-layer nested object
+                        addRow(table, `${key}.${nestedKey}`, nestedSetting[nestedKey]);
+                    }
+                }
+            } else {
+                // Handle regular keys
+                addRow(table, key, config[key]);
+            }
+        }
+    }
+    function addRow(table, key, value) {
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = key;
+
+        // Determine input type based on value type
+        if (typeof value === 'boolean') {
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = value;
+            checkbox.onchange = function() {
+                SetConfigValue(key, this.checked);
+            };
+            cell2.appendChild(checkbox);
+        } else if (typeof value === 'number') {
+            var numberInput = document.createElement('input');
+            numberInput.type = 'number';
+            numberInput.value = value;
+            cell2.appendChild(numberInput);
+
+            var updateButton = document.createElement('button');
+            updateButton.innerHTML = 'Update';
+            updateButton.onclick = function() {
+                SetConfigValue(key, parseInt(numberInput.value, 10));
+            };
+            cell2.appendChild(updateButton);
+        } else if (Array.isArray(value)) {
+            var textInput = document.createElement('input');
+            textInput.type = 'text';
+            textInput.value = value.join(',');
+            textInput.onchange = function() {
+                SetConfigValue(key, this.value.split(','));
+            };
+            cell2.appendChild(textInput);
+        } else {
+            var textInput = document.createElement('input');
+            textInput.type = 'text';
+            textInput.value = value;
+            textInput.onchange = function() {
+                SetConfigValue(key, this.value);
+            };
+            cell2.appendChild(textInput);
+        }
+    }
+    async function GetEventLogs() {
+        const criticality = document.getElementById('criticality').value;
+        let startTime = document.getElementById('startTime').value;
+        let endTime = document.getElementById('endTime').value;
+        const resource = document.getElementById('resource').value;
+
+        // Convert to the expected datetime format
+        startTime = startTime ? startTime.replace("T", " ") + ":00" : "";
+        endTime = endTime ? endTime.replace("T", " ") + ":00" : "";
+
+        let query = `/admin/rasaserver1/admin/event_log?`;
+        if (criticality != "Any") query += `criticality=${encodeURIComponent(criticality)}&`;
+        if (startTime) query += `start_time=${encodeURIComponent(startTime)}&`;
+        if (endTime) query += `end_time=${encodeURIComponent(endTime)}&`;
+        if (resource) query += `resource=${encodeURIComponent(resource)}`;
+
+        try {
+            const response = await fetch(query);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            populateEventLogs(data);
+            createLogChart(data);
+        } catch (error) {
+            console.error('Error fetching event logs:', error);
+        }
+    }
+
+    function populateEventLogs(logs) {
+        const table = document.getElementById('eventLogsTable').getElementsByTagName('tbody')[0];
+        table.innerHTML = ''; // Clear existing rows
+        logs.forEach(log => {
+            const row = table.insertRow();
+
+            let bgColor = '';
+            switch (log.criticality.toUpperCase()) {
+                case 'INFO': default:
+                    bgColor = 'white';
+                    break;
+                case 'TAG':
+                    bgColor = 'lightgreen';
+                    break;
+                case 'DEBUG':
+                    bgColor = 'lightgray';
+                    break;
+                case 'WARNING':
+                    bgColor = 'lightyellow';
+                    break;
+                case 'ERROR':
+                    bgColor = 'lightpink';
+                    break;
+                case 'CRITICAL':
+                    bgColor = '#ef5959';
+                    break; 
+            }
+            const timestamp = row.insertCell(0);
+            const resource = row.insertCell(1);
+            const message = row.insertCell(2);
+            const criticality = row.insertCell(3);
+            timestamp.innerHTML = log.timestamp;
+            timestamp.style.backgroundColor = bgColor;
+            resource.innerHTML = log.resource;
+            resource.style.backgroundColor = bgColor;
+            message.innerHTML = log.message;
+            message.style.backgroundColor = bgColor;
+            criticality.innerHTML = log.criticality;
+            criticality.style.backgroundColor = bgColor;
+        });
+    }
+
+    let logChart = null;
+
+async function createLogChart(logs) {
+    const countsPerMinute = logs.reduce((acc, log) => {
+        const timestamp = new Date(log.timestamp);
+        timestamp.setSeconds(0, 0); // Remove seconds and milliseconds
+        let minuteKey = timestamp.toISOString(); // Create an ISO string
+        minuteKey = minuteKey.replace('T', ' ').substring(0, 16); // Format to 'YYYY-MM-DD HH:MM'
+
+        if (!acc[minuteKey]) {
+            acc[minuteKey] = { DEBUG: 0, INFO: 0, WARNING: 0, ERROR: 0, CRITICAL: 0 };
+        }
+
+        if (log.criticality && acc[minuteKey][log.criticality.toUpperCase()] !== undefined) {
+            acc[minuteKey][log.criticality.toUpperCase()]++;
+        }
+        return acc;
+    }, {});
+
+    const processedData = Object.entries(countsPerMinute).map(([minute, count]) => ({
+        minute,
+        ...count
+    }));
+
+    processedData.sort((a, b) => new Date(a.minute) - new Date(b.minute));
+
+    const ctx = document.getElementById('logChart').getContext('2d');
+
+    if (logChart) {
+        logChart.destroy();
+    }
+
+    logChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: processedData.map(item => item.minute),
+            datasets: [
+                {
+                    label: 'DEBUG',
+                    data: processedData.map(item => item.DEBUG),
+                    borderColor: 'gray',
+                    borderWidth: 1
+                },
+                {
+                    label: 'INFO',
+                    data: processedData.map(item => item.INFO),
+                    borderColor: 'blue',
+                    borderWidth: 1
+                },
+                {
+                    label: 'WARNING',
+                    data: processedData.map(item => item.WARNING),
+                    borderColor: 'yellow',
+                    borderWidth: 1
+                },
+                {
+                    label: 'ERROR',
+                    data: processedData.map(item => item.ERROR),
+                    borderColor: 'red',
+                    borderWidth: 1
+                },
+                {
+                    label: 'CRITICAL',
+                    data: processedData.map(item => item.CRITICAL),
+                    borderColor: '#ef5959', // A dark red for critical
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                },
+                x: {
+                    type: 'time',
+                    time: {
+                        parser: 'yyyy-MM-dd HH:mm',
+                        tooltipFormat: 'yyyy-MM-dd HH:mm',
+                        unit: 'minute',
+                        displayFormats: {
+                            minute: 'HH:mm'
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Time'
+                    }
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: true
+        }
+    });
+}
+
+
+
+</script>
