@@ -36,7 +36,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 <img width="1064" alt="Screenshot 2024-04-26 at 8 48 24 PM" src="https://github.com/Pouriamohseni/VirtualTA/assets/145625808/afe72790-6fbd-432a-aab8-e47a55fa36d5">
 
-Project Images:
 
 ![Uploading Screenshot 2024-04-26 at 8.48.24 PM.png…]()
 
