@@ -37,8 +37,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 <img width="1064" alt="Screenshot 2024-04-26 at 8 48 24 PM" src="https://github.com/Pouriamohseni/VirtualTA/assets/145625808/afe72790-6fbd-432a-aab8-e47a55fa36d5">
 
 Project Images:
+
 ![Uploading Screenshot 2024-04-26 at 8.48.24 PM.png…]()
 
 <img width="1078" alt="Screenshot 2024-06-11 at 10 39 41 AM" src="https://github.com/Pouriamohseni/VirtualTA/assets/145625808/bf8bb561-1c56-45e7-9c13-9759027e4ec8">
 
+<img width="1078" alt="Screenshot 2024-06-11 at 10 42 05 AM" src="https://github.com/Pouriamohseni/VirtualTA/assets/145625808/40edc29a-39ca-4970-bbc0-c19a22c418de">
+
+![Uploading Screenshot 2024-06-11 at 10.43.30 AM.png…]()
 
